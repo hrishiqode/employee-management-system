@@ -7,6 +7,10 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
+      attendanceId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+      },
       date: {
         type: Sequelize.DATEONLY,
         allowNull: false,

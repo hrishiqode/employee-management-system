@@ -7,11 +7,11 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
       },
-      firstname: {
+      firstName: {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      lastname: {
+      lastName: {
         type: Sequelize.STRING,
         allowNull: false,
       },
@@ -32,6 +32,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
         unique: true,
+      },
+      roleId: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
       },
     });
   },
