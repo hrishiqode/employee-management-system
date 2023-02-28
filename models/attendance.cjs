@@ -11,6 +11,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Attendance.belongsTo(models.user, {
+        foreignKey: 'userId',
+      });
     }
   }
   Attendance.init({
@@ -18,6 +21,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.INTEGER,
       autoIncrement: true,
       primaryKey: true,
+    },
+    attendanceId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     date: {
       type: DataTypes.DATEONLY,

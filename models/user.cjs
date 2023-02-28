@@ -11,6 +11,11 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      User.hasOne(models.role, {
+        foreignKey: 'roleId',
+      });
+      User.hasMany(models.attendance);
+      User.hasMany(models.rating);
     }
   }
   User.init({
@@ -19,11 +24,11 @@ module.exports = (sequelize, DataTypes) => {
       autoIncrement: true,
       primaryKey: true,
     },
-    firstname: {
+    firstName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    lastname: {
+    lastName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -44,6 +49,10 @@ module.exports = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false,
       unique: true,
+    },
+    roleId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
   }, {
     sequelize,
