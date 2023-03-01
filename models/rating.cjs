@@ -11,9 +11,6 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      Rating.belongsTo(models.user, {
-        foreignKey: 'userId',
-      });
     }
   }
   Rating.init({
@@ -35,7 +32,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'rating',
+    modelName: 'ratings',
   });
   Rating.sync({ alter: true });
   return Rating;

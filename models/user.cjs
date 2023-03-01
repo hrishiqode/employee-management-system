@@ -11,11 +11,12 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
-      User.hasOne(models.role, {
-        foreignKey: 'roleId',
-      });
-      User.hasMany(models.attendance);
-      User.hasMany(models.rating);
+      User.hasMany(models.attendances);
+      models.attendances.belongsTo(User);
+      User.hasMany(models.ratings);
+      models.ratings.belongsTo(User);
+      models.roles.hasMany(User);
+      User.belongsTo(models.roles);
     }
   }
   User.init({
@@ -56,7 +57,7 @@ module.exports = (sequelize, DataTypes) => {
     },
   }, {
     sequelize,
-    modelName: 'user',
+    modelName: 'users',
   });
   User.sync({
     alter: true,

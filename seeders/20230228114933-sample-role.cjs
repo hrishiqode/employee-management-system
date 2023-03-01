@@ -11,24 +11,19 @@ module.exports = {
      * }], {});
     */
 
-    await queryInterface.bulkInsert('roles', [{
-      roleId: 3,
-      name: 'admin',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      roleId: 2,
-      name: 'hr',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    },
-    {
-      roleId: 1,
-      name: 'employee',
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    }], {});
+    await queryInterface.bulkInsert('roles', [
+      {
+        roleId: 2,
+        name: 'hr',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
+      {
+        roleId: 1,
+        name: 'employee',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      }], {});
   },
 
   async down(queryInterface, Sequelize) {
