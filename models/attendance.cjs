@@ -40,5 +40,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'attendance',
   });
+  Attendance.sync({ alter: true });
   return Attendance;
 };

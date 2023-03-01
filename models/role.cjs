@@ -26,5 +26,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'role',
   });
+  Role.sync({ alter: true });
   return Role;
 };

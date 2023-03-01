@@ -37,5 +37,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'rating',
   });
+  Rating.sync({ alter: true });
   return Rating;
 };
