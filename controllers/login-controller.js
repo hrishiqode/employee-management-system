@@ -6,8 +6,7 @@ const loginRouter = Router();
 
 loginRouter.route('/login')
   .all(async (req, res, next) => {
-    if (req.session && req.session.user) { res.send(req.session.user); }
-    next();
+    if (req.session && req.session.user) { res.send(req.session.user); } else { next(); }
   })
   .get(async (req, res, next) => {
     res.render('login-form', { usernameError: '', passwordError: '' });
