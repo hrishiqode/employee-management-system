@@ -7,14 +7,22 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>Emp Attendance</title>
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+        <base href="/"/>
+        <link
+          src="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
+          rel="stylesheet"/>
+        <link href="styles.css" rel="stylesheet" type="text/css" />
+        <script
+          src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
+          crossorigin="anonymous"
+        /></script>
     </head>
     <body class="sb-nav-fixed">
+        <script>
+        </script>
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">QodeHR</a>
+            <a class="navbar-brand ps-3">QodeHR</a>
             <!-- Sidebar Toggle-->
            
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
@@ -66,15 +74,12 @@
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Calender</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Attendance</li>
-                        </ol>
                         <div class="row">
                             <div class="col-xl-8">
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        Calender
+                                        Attendance
                                                                     </div>
                                     <table>
                                         <thead>
@@ -82,23 +87,29 @@
                                                <th> date</th>
                                                 <th>sign in Time</th>
                                                 <th>sign out Time</th>
-                                                <th>Total working hours</th>
-                                               
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            
-                                            <tr>
-                                                <td><%=date%></td>
-                                                <td><%=loginTime%></td>
-                                                <td><%=logoutTime%></td>
-                                                <td><%=totalHours%></td>
-
-                                            </tr>
+                                            <% attendances.forEach((attendance)=>{%>
+                                                <tr>
+                                                    <td><%=attendance.date%></td>
+                                                    <td><%=attendance.loginTime%></td>
+                                                    <td><%=attendance.logoutTime%></td>
+                                                </tr>
+                                            <% });%>
                                         </tbody>
                                     </table>
-                                   
                                 </div>
+                                <form action="/attendance/<%= (page-1) %>">
+                                    <button>
+                                        prev
+                                    </button>
+                                </form>
+                                <form action="/attendance/<%= (page+1) %>">
+                                    <button>
+                                        next
+                                    </button>
+                                </form>
                             </div>
                             <div class="col-xl-4">
                                 <div class="card mb-4">
