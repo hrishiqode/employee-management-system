@@ -14,7 +14,7 @@
       href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
       rel="stylesheet"
     />
-    <link href="css/styles.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" />
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
       crossorigin="anonymous"
@@ -64,7 +64,7 @@
                 <div class="sb-sidenav-menu">
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">QodeHR</div>
-                        <a class="nav-link" href="index.html">
+                        <a class="nav-link">
                             <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                             Dashboard
                         </a>
@@ -93,29 +93,36 @@
         <main>
           <div class="container-fluid px-4">
             <h1 class="mt-4">Employee Dashboard</h1>
-            <ol class="breadcrumb mb-4">
-              <li class="breadcrumb-item active">Dashboard</li>
-            </ol>
             <!-- sign in sign out -->
             <div>
-              <input type="button" value="sign IN" />
-              <input type="button" value="sign OUT" />
-              <input type="time" />
+              <form action="/signin">
+                <button type="submit">sign-in</button>
+              </form><%= signIn%>
+              <br>
+              <form action="/signout">
+                <button type="submit">sign-out</button>
+              </form><%= signOut%>
             </div>
             <!-- </div> -->
             <br>
             <br>
             <br>
-
+            <div>
             <!-- info table -->
-            <div >Employee Info:
-                <div>Employee ID</div>
-                <div>First Name</div>
-                <div>Last Name</div>
-                <div>Email</div>
-                <div>DOB</div>
-
-            </div>
+            <table>Employee Info:
+              <tr>
+                <th>Employee id</th><td> <%= id %></td>
+              </tr>
+              <tr>
+                <th>First name</th><td> <%= firstName %></td>
+              </tr>
+              <tr>
+                <th>Last name</th><td> <%= lastName %></td>
+              </tr>
+              <tr>
+                <th>Email</th><td> <%= email %></td>
+              </tr>
+            <table>
           </div>
         </main>
         <footer class="py-4 bg-light mt-auto">
