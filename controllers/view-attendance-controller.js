@@ -24,7 +24,13 @@ viewAttendanceRouter.route('/attendance/:page')
         offset: (req.params.page - 1) * 5,
       },
     );
-    res.render('employee-attendance', { attendances: attendancesArray, page: parseInt(req.params.page) });
+    console.log(req.session.user.firstName);
+    res.render('employee-attendance', {
+      attendances: attendancesArray,
+      page: parseInt(req.params.page),
+      firstName: req.session.user.firstName,
+      lastName: req.session.user.lastName,
+    });
   });
 
 export default viewAttendanceRouter;
