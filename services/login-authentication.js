@@ -11,9 +11,9 @@ export default class LoginAuthentication {
       });
       let loginTime;
       let logoutTime;
-      if (attendance != null) {
-        const { loginTime } = attendance;
-        const { logoutTime } = attendance;
+      if (attendance) {
+        loginTime = attendance.loginTime;
+        logoutTime = attendance.logoutTime;
       }
       if (!loginTime) { loginTime = 'not signed in'; }
       if (!logoutTime) { logoutTime = 'not signed out'; }
