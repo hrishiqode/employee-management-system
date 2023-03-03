@@ -13,7 +13,7 @@ contactRouter.route('/contact')
     }
   })
   .get(async (req, res, next) => {
-    res.render('employee-contact');
+    res.render('employee-contact', { firstName: req.session.user.firstName, lastName: req.session.user.lastName });
   });
 
 export default contactRouter;
