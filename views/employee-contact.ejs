@@ -7,8 +7,9 @@
         <meta name="description" content="" />
         <meta name="author" content="" />
         <title>emp contact us</title>
+        <base href="/"/>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
@@ -42,22 +43,25 @@
                     <div class="sb-sidenav-menu">
                         <div class="nav">
                             <div class="sb-sidenav-menu-heading">QodeHR</div>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Details</div>
-                            <a class="nav-link" href="profile.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Profile
-                            </a>
-                            <a class="nav-link" href="attendance.html">
+                            <a class="nav-link">
                                 <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                                Attendance
-                            </a>
-                            <a class="nav-link" href="contact.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Contact Us
+                                <form action="/">
+                                  <button type="submit">Dashboard</button>
+                                </form>
+                              </a>
+                              <div class="sb-sidenav-menu-heading">Details</div>
+                              
+                              <a class="nav-link">
+                                  <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                                  <form action="/attendance/1">
+                                    <button type="submit">Attendance</button>
+                                  </form>
+                              </a>
+                              <a class="nav-link">
+                                <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                                <form action="/contact">
+                                  <button type="submit">Contact us</button>
+                                </form>
                             </a>
                         </div>
                     </div>
@@ -71,22 +75,19 @@
                 <main>
                     <div class="container-fluid px-4">
                         <h1 class="mt-4">Contact</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Contact Us</li>
-                        </ol>
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        Conatct Us
+                                        Contact Us
                                     </div>
                                     <br>
                                     <div class="container">
                                         <div class="row">
                                             <div class="col-sm-12">
                                                 <h5>Email: email@QodeHR.com</h3>
-                                                <h5>Phone: +(91) 883*******</h3>
+                                                <h5>Phone: +(91) 0123456789</h3>
                                             </div>
                                         </div>
                                     </div>
