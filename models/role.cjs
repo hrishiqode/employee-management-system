@@ -14,7 +14,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Role.init({
-    roleId: {
+    id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
     },
@@ -26,6 +26,6 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'roles',
   });
-  Role.sync({ force: true });
+  Role.sync({ alter: true });
   return Role;
 };
