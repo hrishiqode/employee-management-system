@@ -26,8 +26,8 @@ body{
         #1845ad,
         #23a2f6
     );
-    left: -80px;
-    top: -80px;
+    right: -53px;
+    bottom: -83px;
 }
 .shape:last-child{
     background: linear-gradient(
