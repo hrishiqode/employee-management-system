@@ -1,12 +1,26 @@
 import { Router } from 'express';
+import LoginAuthentication from '../services/login-authentication.js';
 import attendanceRouter from './attendance-controller.js';
 import contactRouter from './contact-controller.js';
+import dashboardRouter from './dashboard-controller.js';
+import hrRouter from './hr-controllers/index.js';
 import loginRouter from './login-controller.js';
 import viewAttendanceRouter from './view-attendance-controller.js';
 
+const employeeRouter = Router();
+employeeRouter.use(LoginAuthentication.employeeCheck);
+employeeRouter.use(attendanceRouter);
+employeeRouter.use(viewAttendanceRouter);
+employeeRouter.use(contactRouter);
+employeeRouter.use(dashboardRouter);
+const protectedRouter = Router();
+protectedRouter.use(LoginAuthentication.authCheck);
+protectedRouter.use('/hr', hrRouter);
+protectedRouter.use('/employee', employeeRouter);
+const publicRouter = Router();
+publicRouter.use(loginRouter);
 const centralRouter = Router();
-centralRouter.use(loginRouter);
-centralRouter.use(attendanceRouter);
-centralRouter.use(viewAttendanceRouter);
-centralRouter.use(contactRouter);
+centralRouter.use(publicRouter);
+centralRouter.use(protectedRouter);
+
 export default centralRouter;
