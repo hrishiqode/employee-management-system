@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import LoginAuthentication from '../../services/login-authentication.js';
 import hrAddEmployeeRouter from './hr-add-employee-controller.js';
+import hrContactRouter from './hr-contact-controller.js';
 import hrDashboardRouter from './hr-dashboard-controller.js';
 import hrViewUserListRouter from './hr-view-user-list.js';
 
@@ -9,4 +10,5 @@ hrRouter.use(LoginAuthentication.hrCheck);
 hrRouter.use(hrDashboardRouter);
 hrRouter.use(hrAddEmployeeRouter);
 hrRouter.use(hrViewUserListRouter);
+hrRouter.use(hrContactRouter);
 export default hrRouter;
