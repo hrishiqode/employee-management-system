@@ -9,6 +9,7 @@ logoutRouter.route('/logout').all(async (req, res, next) => {
     res.redirect('/login');
   }
 }).get(async (req, res) => {
+  console.log('logout');
   req.session.destroy();
   res.redirect('/');
 });
