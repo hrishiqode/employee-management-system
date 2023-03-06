@@ -6,16 +6,44 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>emp contact us</title>
+        <title>QodeHR</title>
         <base href="/"/>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
         <link href="styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
+    <style>
+    h1{
+      padding: 10px;
+    }
+    table {
+      /* margin-left: auto;
+      margin-right: auto; */
+    border-collapse: collapse;
+    margin: 25px ;
+    font-size: 0.9em;
+    font-family: sans-serif;
+    min-width: 400px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+table thead tr {
+  margin-left: auto;
+      margin-right: auto;
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+table th,
+table td {
+  margin-left: auto;
+      margin-right: auto;
+    padding: 12px 15px;
+}
+    </style>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Qode HR</a>
+            <a class="navbar-brand ps-3" href="#">Qode HR</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -56,14 +84,14 @@
                           </a>
                           <a class="nav-link">
                             <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                            <form action="/hr/employee">
-                              <button style="border: azure;" type="submit">Add Employee</button>
+                            <form action="/hr/users">
+                              <button style="border: azure;" type="submit">All employees</button>
                             </form>
                           </a>
                           <a class="nav-link">
                             <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                            <form action="/hr/users">
-                              <button style="border: azure;" type="submit">View All Employees</button>
+                            <form action="/hr/employee">
+                              <button style="border: azure;" type="submit">Add Employee</button>
                             </form>
                           </a>
                           <a class="nav-link">
@@ -80,8 +108,11 @@
                     </div>
                   </nav>
               </div>
+            
             <div id="layoutSidenav_content">
+             
                 <main>
+                  <div>  <h1>All Employee Data</h1></div>
                     <div>
                     <table>
                         <thead>
@@ -93,7 +124,14 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <!-- Table rows will go here -->
+                          <% userArray.forEach((user)=>{%>
+                            <tr>
+                                <td><%=user.id%></td>
+                                <td><%=user.firstName%></td>
+                                <td><%=user.lastName%></td>
+                                <td><%=user.download%> <form action="/hr/user/<%=user.id%>"><button type="submit">Download <%=user.firstName%>'s Info</button></form></td>
+                             </tr>
+                        <% });%>
                         </tbody>
                       </table>
                     </div>
