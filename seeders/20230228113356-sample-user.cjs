@@ -11,6 +11,17 @@ module.exports = {
       email: 'john@gmail.com',
       createdAt: new Date(),
       updatedAt: new Date(),
+    },
+    {
+      firstName: 'Johnda',
+      lastName: 'Doeda',
+      dateOfBirth: new Date(),
+      password: '1234',
+      username: 'john2',
+      roleId: 2,
+      email: 'johnda@gmail.com',
+      createdAt: new Date(),
+      updatedAt: new Date(),
     }], {});
   },
 
