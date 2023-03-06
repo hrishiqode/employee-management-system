@@ -221,10 +221,9 @@
       }
 
      
-     if('5'.innerHTML=5){
-      console.log(5);
-      document.getElementById('5').style.backgroundColor = 'red';
-     }
+      <% dateArray.forEach((attendance)=>{ %>
+        document.getElementById(<%= attendance %>).style.backgroundColor='green';
+      <% }); %>
       
       
     </script>
