@@ -11,6 +11,14 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+.logout{
+  border: none;
+ text-align: center;
+ background-color: #fff;
+
+}
+
+
 thead th {
   border: 1px solid black;
 }
