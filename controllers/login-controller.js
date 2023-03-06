@@ -1,29 +1,31 @@
 import bodyParser from 'body-parser';
 import { Router } from 'express';
 import db from '../models/index.cjs';
+import LoginAuthentication from '../services/login-authentication.js';
 
 const loginRouter = Router();
 
 loginRouter.route('/login')
-  .all(async (req, res, next) => {
-    if (req.session && req.session.user) { res.send(req.session.user); } else { next(); }
-  })
   .get(async (req, res, next) => {
     res.render('login-form', { usernameError: '', passwordError: '' });
   })
-  .all(bodyParser.json())
   .all(bodyParser.urlencoded())
   .post(async (req, res, next) => {
-    // console.log;
-    const resultedUser = await db.user.findOne({
+    const resultedUser = await db.users.findOne({
       where: {
         username: req.body.username,
       },
+      include: db.roles,
     });
     if (resultedUser === null) { res.render('login-form', { usernameError: 'no such user', passwordError: '' }); } else if (resultedUser.password !== req.body.password) { res.render('login-form', { usernameError: '', passwordError: 'wrong password' }); } else {
       req.session.authenticated = true;
       req.session.user = resultedUser;
-      res.send(resultedUser);
+      res.redirect('/employee');
+      console.log('hello');
     }
+  });
+loginRouter.route('/')
+  .all(async (req, res, next) => {
+    res.redirect('/employee');
   });
 export default loginRouter;
