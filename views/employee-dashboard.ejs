@@ -176,8 +176,10 @@
       let today = new Date();
   
       // Get the number of days in the current month
+      let attArray=[];
       let daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-  
+      
+      console.log(attArray);
       // Get the first day of the current month
       let firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
   
@@ -208,13 +210,9 @@
         }
         calendarBody.appendChild(row);
       }
-
-     
-     if('5'.innerHTML=5){
-      console.log(5);
-      document.getElementById('5').style.backgroundColor = 'red';
-     }
-      
+      <% dateArray.forEach((attendance)=>{ %>
+        document.getElementById(<%= attendance %>).style.backgroundColor='green';
+      <% }); %>
       
     </script>
 
