@@ -11,6 +11,31 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+
+
+
+ table {
+ 
+border-collapse: collapse;
+margin: 25px 0;
+font-size: 0.9em;
+font-family: sans-serif;
+min-width: 400px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+table thead tr {
+background-color: #009879;
+color: #ffffff;
+text-align: left;
+}
+table th,
+table td {
+padding: 12px 15px;
+}
+
+
+
+
 .logout{
   border: none;
  text-align: center;
@@ -41,15 +66,10 @@ th{
   padding: 10px;
  }
 
-
 .form-signin{
-  background-color: adb5bd;
- border-style: solid;
- width: 200px;
- border-radius: 5px;
- padding: 5px;
- margin: 10px;
- 
+  width: 200px;
+  height: 200px;
+  border: 1px solid black;
 }
 
 #calender{

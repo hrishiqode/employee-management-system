@@ -62,11 +62,18 @@
                             </form>
                         </a>
                         <a class="nav-link">
+                            <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                            <form action="/hr/users">
+                              <button style="border: azure;" type="submit">All employees</button>
+                            </form>
+                          </a>
+                        <a class="nav-link">
                           <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
                           <form action="/hr/employee">
                             <button style="border: azure;" type="submit">Add Employee</button>
                           </form>
                         </a>
+                       
                         <a class="nav-link">
                           <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
                           <form action="/hr/contact">
@@ -84,13 +91,13 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Calender</h1>
+                        <h1 class="mt-4">Attendance</h1>
                         <div class="row">
                             <div class="col-xl-8">
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        Attendance
+                                        Your Profile attendance
                                                                     </div>
                                     <table>
                                         <thead>
@@ -112,7 +119,7 @@
                                     </table>
                                 </div>
                                 <form action="/hr/attendance/<%= (page-1) %>">
-                                    <button>
+                                    <button >
                                         prev
                                     </button>
                                 </form>
