@@ -57,8 +57,9 @@
             <li><form action="/logout">
               <button class="logout" type="submit">Logout</button>
             </form></li>
-            <li><form action="/logout">
-              <button class="logout" type="submit">Deactivate Account</button>
+            <hr>
+            <li>
+              <button class="delete" onclick="deleteUser()">Deactivate Account</button>
             </form></li>
           </ul>
         </li>
@@ -211,11 +212,13 @@
           }
           row.appendChild(cell);
         }
+
         calendarBody.appendChild(row);
       }
       <% dateArray.forEach((attendance)=>{ %>
         document.getElementById(<%= attendance %>).style.backgroundColor='green';
       <% }); %>
+<<<<<<< HEAD
       
 
       //function toggleButtons() {
@@ -227,6 +230,21 @@
     //return false;
   //}
 
+
+// console.log(window.location.host);
+      function deleteUser() {
+
+      var requestOptions = {
+        method: 'DELETE',
+        redirect: 'follow',
+        credentials: "include"
+      };
+      console.log(window.location.hostname+"/employee");
+      fetch(location.protocol+'//'+window.location.host+"/employee", requestOptions)
+        .then(response => response.text())
+        .then(result => window.location.reload())
+        .catch(error => console.log('error', error));
+}
     </script>
 
     <script
