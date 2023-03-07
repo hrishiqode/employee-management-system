@@ -37,8 +37,9 @@
                         <li><form action="/logout">
                             <button class="logout" type="submit">logout</button>
                           </form></li>
-                          <li><form action="/logout">
-                            <button class="logout" type="submit">Deactivate Account</button>
+                          <hr>
+                          <li>
+                            <button class="delete" onclick="deleteUser()">Deactivate Account</button>
                           </form></li>
                     </ul>
                 </li>
@@ -154,6 +155,21 @@
                 </footer>
             </div>
         </div>
+        <script>
+             function deleteUser() {
+
+var requestOptions = {
+    method: 'DELETE',
+    redirect: 'follow',
+    credentials: "include"
+    };
+    console.log(window.location.hostname+"/employee");
+    fetch(location.protocol+'//'+window.location.host+"/employee", requestOptions)
+    .then(response => response.text())
+    .then(result => window.location.reload())
+    .catch(error => console.log('error', error));
+}
+        </script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
        
     </body>
