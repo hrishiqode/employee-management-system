@@ -9,6 +9,9 @@
     "start": "node index.js",
     "lint": "./node_modules/.bin/eslint index.js"
   },
+  "engines": {
+    "node": "v19.6.0"
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
