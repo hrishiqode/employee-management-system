@@ -8,7 +8,7 @@ hrAddEmployeeRouter.route('/employee')
   .get(async (req, res, next) => {
     res.render('hr-add-employee', { firstName: req.session.user.firstName, message: '' });
   })
-  .all(bodyParser.urlencoded())
+  .all(bodyParser.urlencoded({ extended: true }))
   .post(async (req, res, next) => {
     console.log('this here');
     console.log(req.body);
