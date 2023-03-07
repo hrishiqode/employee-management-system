@@ -6,6 +6,7 @@ import dashboardRouter from './dashboard-controller.js';
 import hrRouter from './hr-controllers/index.js';
 import loginRouter from './login-controller.js';
 import logoutRouter from './logout-controller.js';
+import registerHrRouter from './register-hr-controller.js';
 import viewAttendanceRouter from './view-attendance-controller.js';
 
 const employeeRouter = Router();
@@ -21,7 +22,7 @@ protectedRouter.use('/employee', employeeRouter);
 const publicRouter = Router();
 publicRouter.use(loginRouter);
 publicRouter.use(logoutRouter);
-
+publicRouter.use(registerHrRouter);
 const centralRouter = Router();
 centralRouter.use(publicRouter);
 centralRouter.use(protectedRouter);
