@@ -19,24 +19,24 @@
         <div class="flexing">
         <div class="register-part1">
         <label for="firstname">First Name</label>
-        <input type="text" name="firstName" placeholder="first name" id="username">
+        <input type="text" name="firstName" placeholder="first name" id="username" required>
         <span > </span>
         <label for="lastname">Last Name</label>
-        <input type="text" name="lastName" placeholder="last name" id="username">
+        <input type="text" name="lastName" placeholder="last name" id="username" required>
         <span > </span>
         <label for="date">DOB</label>
-        <input type="date" name="dateOfBirth" placeholder="DOB" id="username">
+        <input type="date" name="dateOfBirth" placeholder="DOB" id="username" required>
         <span > </span>
     </div>
     <div class="register-part2">
         <label for="password">Password</label>
-        <input type="password" name="password" placeholder="password" id="username">
+        <input type="password" name="password" placeholder="password" id="username" required>
         <span > </span>
         <label for="username">Username</label>
-        <input type="text" name="username" placeholder="username" id="username">
+        <input type="text" name="username" placeholder="username" id="username" required>
         <span > </span>
         <label for="email">email</label>
-        <input type="email" name="email" placeholder="Email" id="username">
+        <input type="email" name="email" placeholder="Email" id="username" required>
         <span > </span>
         
 
@@ -49,7 +49,7 @@
     
 
         <button>Register</button>
-
+        <%= message %>
        
         
        
