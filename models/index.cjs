@@ -10,7 +10,7 @@ const db = {};
 
 let sequelize;
 if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
+  sequelize = new Sequelize('postgres://hjadhav:ZfAJS85UxOse@ep-fancy-sound-837594.ap-southeast-1.aws.neon.tech/neondb?sslmode=require');
 } else {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
