@@ -100,19 +100,20 @@
           <div class="container-fluid px-4">
 
             <h1 class="mt-4">Employee Dashboard</h1>
+            <br>
             <!-- sign in sign out -->
           </div>
           <div class="flexing">
-            <div style="height: auto;" class="form-signin">
-              <form action="/employee/signin">
-                <button type="submit">sign-in</button>
-              </form><%= signIn%>
+            
+            <div class="form-signin"> Mark Your attendance:
+              <form class="sign-in" action="/employee/signin">
+                <button type="submit" style="display: <%= signIn == 'not signed in'?'block':'none' %>;">sign-in :<%= signIn%></button>
+              </form>
               <br>
-              <form action="/employee/signout">
-                <button type="submit">sign-out</button>
-              </form><%= signOut%>
+              <form class="sign-out" action="/employee/signout" style="display:<%= signOut == 'not signed out'?'block':'block' %>;">
+                <button type="submit">sign-out :<%= signOut%></button>
+              </form>
             </div>
-
             <table id="calender">
               <thead>
                 <tr>
@@ -125,12 +126,9 @@
                   <th>Sat</th>
                 </tr>
               </thead>
-              <tbody id="calendar-body">
-              
+              <tbody id="calendar-body">             
               </tbody>
             </table>
-           
-            
           </div>
           <div class="info-table">Employee Info :
           <table>
@@ -147,14 +145,12 @@
               <th>Email</th><td> <%= email %></td>
             </tr>
           <table>
-        <div>
-        
+        <div>        
         </div>
-          
-          
          </main>
-        <footer class="py-4 bg-light mt-auto">
-          <div class="container-fluid ">
+         <br>
+        <!-- <footer class="py-4 bg-light mt-auto">
+          <div class="">
             <div
               class="d-flex align-items-center justify-content-between small"
             >
@@ -166,12 +162,14 @@
               </div>
             </div>
           </div>
-        </footer>
+        </footer> -->
       </div>
     </div>
    
 
     <script>
+
+
       // Get the current date
       let today = new Date();
   
@@ -214,6 +212,16 @@
         document.getElementById(<%= attendance %>).style.backgroundColor='green';
       <% }); %>
       
+
+      //function toggleButtons() {
+         //event.preventDefault(); // prevent default form submission behavior
+    var signInButton = document.querySelector(".form-signin .sign-in button");
+    var signOutForm = document.querySelector(".form-signin .sign-out");
+    var signOutButton = document.querySelector(".form-signin .sign-out button");
+    //signOutButton.style.display = "inline";
+    //return false;
+  //}
+
     </script>
 
     <script
