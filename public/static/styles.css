@@ -11,7 +11,20 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+.sign-in{
 
+}
+
+.sign-out{
+  
+}
+
+ footer {
+  position: fixed;
+  height: 100px;
+  bottom: 0;
+  width: 100%;
+}
 
 
  table {
@@ -58,18 +71,22 @@ th{
 
 .info-table {
   margin-left: 30px ;
+  
 }
 
  .flexing{
   display: flex;
   margin :10px;
   padding: 10px;
+  justify-content: center;
  }
 
 .form-signin{
   width: 200px;
-  height: 200px;
-  border: 1px solid black;
+  height: 150px;
+  padding: 5px;
+  /* border: 1px solid black; */
+  margin-right: 50px;
 }
 
 #calender{
