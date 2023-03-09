@@ -8,9 +8,9 @@
   <meta name="description" content="" />
   <meta name="author" content="" />
   <base href="/" />
-  <title>Dashboard</title>
+  <title>HR Dashboard</title>
   <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-  <link href="styles.css" rel="stylesheet" type="" />
+  <link href="styles.css" rel="stylesheet" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
 </head>
 
@@ -32,12 +32,7 @@
           <li></li>
           <li>
             <form action="/logout">
-              <button class="logout" type="submit">Logout</button>
-            </form>
-          </li>
-          <hr>
-          <li>
-            <button class="delete" onclick="deleteUser()">Deactivate Account</button>
+              <button class="logout" type="submit">logout</button>
             </form>
           </li>
         </ul>
@@ -52,7 +47,7 @@
             <div class="sb-sidenav-menu-heading">QodeHR</div>
             <a class="nav-link">
               <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-              <form action="/employee">
+              <form action="/hr">
                 <button style="border: azure;" type="submit">Dashboard</button>
               </form>
             </a>
@@ -60,13 +55,25 @@
 
             <a class="nav-link">
               <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-              <form action="/employee/attendance/1">
+              <form action="/hr/attendance/1">
                 <button style="border: azure;" type="submit">Attendance</button>
               </form>
             </a>
             <a class="nav-link">
               <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-              <form action="/employee/contact">
+              <form action="/hr/users">
+                <button style="border: azure;" type="submit">All employees</button>
+              </form>
+            </a>
+            <a class="nav-link">
+              <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+              <form action="/hr/employee">
+                <button style="border: azure;" type="submit">Add Employee</button>
+              </form>
+            </a>
+            <a class="nav-link">
+              <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+              <form action="/hr/contact">
                 <button style="border: azure;" type="submit">Contact us</button>
               </form>
             </a>
@@ -80,71 +87,69 @@
     </div>
     <div id="layoutSidenav_content">
       <main>
-        <div class="container-fluid px-4">
+        <main>
+          <div class="container-fluid px-4">
 
-          <h1 class="mt-4">Employee Dashboard</h1>
-          <br>
-          <!-- sign in sign out -->
-        </div>
-        <div class="flexing">
-
-          <div class="form-signin"> Mark Your attendance:
-            <form class="sign-in" action="/employee/signin">
-              <button type="submit" style="display: <%= signIn == 'not signed in'?'block':'none' %>;">sign-in :<%= signIn%></button>
-            </form>
-            <br>
-            <form class="sign-out" action="/employee/signout" style="display:<%= signOut == 'not signed out'?'block':'block' %>;">
-              <button type="submit">sign-out :<%= signOut%></button>
-            </form>
+            <h1 class="mt-4">HR Dashboard</h1>
+            <!-- sign in sign out -->
           </div>
-          <table id="calender">
-            <thead>
-              <tr>
-                <th>Sun</th>
-                <th>Mon</th>
-                <th>Tue</th>
-                <th>Wed</th>
-                <th>Thu</th>
-                <th>Fri</th>
-                <th>Sat</th>
-              </tr>
-            </thead>
-            <tbody id="calendar-body">
-            </tbody>
-          </table>
-        </div>
-        <div class="info-table">Employee Info :
-          <table>
-            <tr>
-              <th>Employee id</th>
-              <td> <%= id %></td>
-            </tr>
-            <tr>
-              <th>First name</th>
-              <td> <%= firstName %></td>
-            </tr>
-            <tr>
-              <th>Last name</th>
-              <td> <%= lastName %></td>
-            </tr>
-            <tr>
-              <th>Email</th>
-              <td> <%= email %></td>
-            </tr>
-            <table>
-              <div>
-              </div>
-      </main>
-      <br>
+          <div class="flexing">
+            <div class="form-signin"> Mark Your attendance:
+              <form class="sign-in" action="/hr/signin">
+                <button type="submit" style="display: <%= signIn == 'not signed in'?'block':'none' %>">sign-in :<%= signIn%></button>
+              </form>
+              <br>
+              <form class="sign-out" action="/hr/signout" style="display:<%= signOut == 'not signed out'?'block':'block' %>">
+                <button type="submit">sign-out :<%= signOut%></button>
+              </form>
+            </div>
 
+            <table id="calender">
+              <thead>
+                <tr>
+                  <th>Sun</th>
+                  <th>Mon</th>
+                  <th>Tue</th>
+                  <th>Wed</th>
+                  <th>Thu</th>
+                  <th>Fri</th>
+                  <th>Sat</th>
+                </tr>
+              </thead>
+              <tbody id="calendar-body">
+              </tbody>
+            </table>
+          </div>
+          <div class="info-table">HR Info :
+            <table>
+              <tr>
+                <th>HR id</th>
+                <td> <%= id %></td>
+              </tr>
+              <tr>
+                <th>First name</th>
+                <td> <%= firstName %></td>
+              </tr>
+              <tr>
+                <th>Last name</th>
+                <td> <%= lastName %></td>
+              </tr>
+              <tr>
+                <th>Email</th>
+                <td> <%= email %></td>
+              </tr>
+              <table>
+            <div>
+          </div>
+        </main>
+        <br>
     </div>
   </div>
-
-
   <script>
     let today = new Date();
     let attArray = [];
     let daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+    console.log(attArray);
     let firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
     let calendarBody = document.getElementById("calendar-body");
     let date = 1;
@@ -171,28 +176,10 @@
     <% dateArray.forEach((attendance)=>{ %>
     document.getElementById(<%= attendance %>).style.backgroundColor = 'green';
     <% }); %>
-
-    function deleteUser() {
-      var requestOptions = {
-        method: 'DELETE',
-        redirect: 'follow',
-        credentials: "include"
-      };
-      console.log(window.location.hostname + "/employee");
-      fetch(location.protocol + '//' + window.location.host + "/employee", requestOptions)
-        .then(response => response.text())
-        .then(result => window.location.reload())
-        .catch(error => console.log('error', error));
-    }
-
-
     var signInButton = document.querySelector(".form-signin .sign-in button");
     var signOutForm = document.querySelector(".form-signin .sign-out");
     var signOutButton = document.querySelector(".form-signin .sign-out button");
   </script>
-
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-
 </body>
-
 </html>
