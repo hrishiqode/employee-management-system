@@ -1,253 +1,198 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <base href="/"/>
-    <title>Dashboard</title>
-    <link
-      href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
-      rel="stylesheet"
-    />
-    <link href="styles.css" rel="stylesheet" type=""/>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
-      crossorigin="anonymous"
-    ></script>
-  </head>
-  <body class="sb-nav-fixed">
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-      <!-- Navbar Brand-->
-      <a class="navbar-brand ps-3" href="#">QodeHR</a>
-      <!-- Sidebar Toggle-->
-      <button
-        class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0"
-        id="sidebarToggle"
-        href="#!"
-      >
-        <i class="fas fa-bars"></i>
-      </button>
-      <!-- Navbar Search-->
-      <form
-        class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"
-      ></form>
-      <!-- Navbar-->
-      <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-        <li class="nav-item dropdown">
-          <a
-            class="nav-link dropdown-toggle"
-            id="navbarDropdown"
-            href="#"
-            role="button"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-            ><i class="fas fa-user fa-fw"></i
-          ></a>
-          <ul
-            class="dropdown-menu dropdown-menu-end"
-            aria-labelledby="navbarDropdown"
-          >
-            <li></li>
-            <li><form action="/logout">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <meta name="description" content="" />
+  <meta name="author" content="" />
+  <base href="/" />
+  <title>Dashboard</title>
+  <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
+  <link href="styles.css" rel="stylesheet" type="" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed">
+  <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+    <!-- Navbar Brand-->
+    <a class="navbar-brand ps-3" href="#">QodeHR</a>
+    <!-- Sidebar Toggle-->
+    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
+      <i class="fas fa-bars"></i>
+    </button>
+    <!-- Navbar Search-->
+    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
+    <!-- Navbar-->
+    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+          <li></li>
+          <li>
+            <form action="/logout">
               <button class="logout" type="submit">Logout</button>
-            </form></li>
-            <hr>
-            <li>
-              <button class="delete" onclick="deleteUser()">Deactivate Account</button>
-            </form></li>
-          </ul>
-        </li>
-      </ul>
-    </nav>
-    <div style="background-color: rgba(255,255,255,0.13);" id="layoutSidenav">
-        <div style="background-color: rgba(255,255,255,0.13);" id="layoutSidenav_nav">
-            <nav  class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
-                <div class="sb-sidenav-menu">
-                    <div class="nav">
-                        <div class="sb-sidenav-menu-heading">QodeHR</div>
-                        <a class="nav-link">
-                          <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                          <form action="/employee">
-                            <button  style="border: azure;" type="submit">Dashboard</button>
-                          </form>
-                        </a>
-                        <div class="sb-sidenav-menu-heading">Details</div>
-                        
-                        <a class="nav-link">
-                            <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                            <form action="/employee/attendance/1">
-                              <button style="border: azure;" type="submit">Attendance</button>
-                            </form>
-                        </a>
-                        <a class="nav-link">
-                          <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                          <form action="/employee/contact">
-                            <button style="border: azure;" type="submit">Contact us</button>
-                          </form>
-                      </a>
-                    </div>
-                </div>
-                <div class="sb-sidenav-footer">
-                    <div class="small">Logged in as:</div>
-                    <%=firstName%>
-                </div>
-            </nav>
-        </div>
-      <div id="layoutSidenav_content">
-        <main>
-          <div class="container-fluid px-4">
+            </form>
+          </li>
+          <hr>
+          <li>
+            <button class="delete" onclick="deleteUser()">Deactivate Account</button>
+            </form>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </nav>
+  <div style="background-color: rgba(255,255,255,0.13);" id="layoutSidenav">
+    <div style="background-color: rgba(255,255,255,0.13);" id="layoutSidenav_nav">
+      <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
+        <div class="sb-sidenav-menu">
+          <div class="nav">
+            <div class="sb-sidenav-menu-heading">QodeHR</div>
+            <a class="nav-link">
+              <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+              <form action="/employee">
+                <button style="border: azure;" type="submit">Dashboard</button>
+              </form>
+            </a>
+            <div class="sb-sidenav-menu-heading">Details</div>
 
-            <h1 class="mt-4">Employee Dashboard</h1>
-            <br>
-            <!-- sign in sign out -->
-          </div>
-          <div class="flexing">
-            
-            <div class="form-signin"> Mark Your attendance:
-              <form class="sign-in" action="/employee/signin">
-                <button type="submit" style="display: <%= signIn == 'not signed in'?'block':'none' %>;">sign-in :<%= signIn%></button>
+            <a class="nav-link">
+              <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+              <form action="/employee/attendance/1">
+                <button style="border: azure;" type="submit">Attendance</button>
               </form>
-              <br>
-              <form class="sign-out" action="/employee/signout" style="display:<%= signOut == 'not signed out'?'block':'block' %>;">
-                <button type="submit">sign-out :<%= signOut%></button>
+            </a>
+            <a class="nav-link">
+              <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+              <form action="/employee/contact">
+                <button style="border: azure;" type="submit">Contact us</button>
               </form>
-            </div>
-            <table id="calender">
-              <thead>
-                <tr>
-                  <th>Sun</th>
-                  <th>Mon</th>
-                  <th>Tue</th>
-                  <th>Wed</th>
-                  <th>Thu</th>
-                  <th>Fri</th>
-                  <th>Sat</th>
-                </tr>
-              </thead>
-              <tbody id="calendar-body">             
-              </tbody>
-            </table>
+            </a>
           </div>
-          <div class="info-table">Employee Info :
-          <table>
-            <tr>
-              <th>Employee id</th><td> <%= id %></td>
-            </tr>
-            <tr>
-              <th>First name</th><td> <%= firstName %></td>
-            </tr>
-            <tr>
-              <th>Last name</th><td> <%= lastName %></td>
-            </tr>
-            <tr>
-              <th>Email</th><td> <%= email %></td>
-            </tr>
-          <table>
-        <div>        
         </div>
-         </main>
-         <br>
-        <!-- <footer class="py-4 bg-light mt-auto">
-          <div class="">
-            <div
-              class="d-flex align-items-center justify-content-between small"
-            >
-              <div class="text-muted">Copyright &copy; QodeHR 2023</div>
-              <div>
-                <a href="#">Privacy Policy</a>
-                &middot;
-                <a href="#">Terms &amp; Conditions</a>
-              </div>
-            </div>
-          </div>
-        </footer> -->
-      </div>
+        <div class="sb-sidenav-footer">
+          <div class="small">Logged in as:</div>
+          <%=firstName%>
+        </div>
+      </nav>
     </div>
-   
+    <div id="layoutSidenav_content">
+      <main>
+        <div class="container-fluid px-4">
 
-    <script>
+          <h1 class="mt-4">Employee Dashboard</h1>
+          <br>
+          <!-- sign in sign out -->
+        </div>
+        <div class="flexing">
+
+          <div class="form-signin"> Mark Your attendance:
+            <form class="sign-in" action="/employee/signin">
+              <button type="submit" style="display: <%= signIn == 'not signed in'?'block':'none' %>;">sign-in :<%= signIn%></button>
+            </form>
+            <br>
+            <form class="sign-out" action="/employee/signout" style="display:<%= signOut == 'not signed out'?'block':'block' %>;">
+              <button type="submit">sign-out :<%= signOut%></button>
+            </form>
+          </div>
+          <table id="calender">
+            <thead>
+              <tr>
+                <th>Sun</th>
+                <th>Mon</th>
+                <th>Tue</th>
+                <th>Wed</th>
+                <th>Thu</th>
+                <th>Fri</th>
+                <th>Sat</th>
+              </tr>
+            </thead>
+            <tbody id="calendar-body">
+            </tbody>
+          </table>
+        </div>
+        <div class="info-table">Employee Info :
+          <table>
+            <tr>
+              <th>Employee id</th>
+              <td> <%= id %></td>
+            </tr>
+            <tr>
+              <th>First name</th>
+              <td> <%= firstName %></td>
+            </tr>
+            <tr>
+              <th>Last name</th>
+              <td> <%= lastName %></td>
+            </tr>
+            <tr>
+              <th>Email</th>
+              <td> <%= email %></td>
+            </tr>
+            <table>
+              <div>
+              </div>
+      </main>
+      <br>
+
+    </div>
+  </div>
 
 
-      // Get the current date
-      let today = new Date();
-  
-      // Get the number of days in the current month
-      let attArray=[];
-      let daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-      
-      console.log(attArray);
-      // Get the first day of the current month
-      let firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
-  
-      // Populate the calendar with dates
-      let calendarBody = document.getElementById("calendar-body");
-      let date = 1;
-      for (let i = 0; i < 6; i++) {
-        let row = document.createElement("tr");
-        for (let j = 0; j < 7; j++) {
-          let cell = document.createElement("td");
-          if (i === 0 && j < firstDay) {
-            // Empty cell before the first day of the month
-            cell.textContent = "";
-          } else if (date > daysInMonth) {
-            // Empty cell after the last day of the month
-            cell.textContent = "";
-          } else {
-            // Cell with date
-            cell.textContent = date;
-            cell.id = date;
-            if (date === today.getDate() && today.getMonth() === new Date().getMonth()) {
-              // Highlight the current date with the 'today' class
-              cell.classList.add("today");
-            }
-            date++;
+  <script>
+    let today = new Date();
+    let attArray = [];
+    let daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+    let firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
+    let calendarBody = document.getElementById("calendar-body");
+    let date = 1;
+    for (let i = 0; i < 6; i++) {
+      let row = document.createElement("tr");
+      for (let j = 0; j < 7; j++) {
+        let cell = document.createElement("td");
+        if (i === 0 && j < firstDay) {
+          cell.textContent = "";
+        } else if (date > daysInMonth) {
+          cell.textContent = "";
+        } else {
+          cell.textContent = date;
+          cell.id = date;
+          if (date === today.getDate() && today.getMonth() === new Date().getMonth()) {
+            cell.classList.add("today");
           }
-          row.appendChild(cell);
+          date++;
         }
-
-        calendarBody.appendChild(row);
+        row.appendChild(cell);
       }
-      <% dateArray.forEach((attendance)=>{ %>
-        document.getElementById(<%= attendance %>).style.backgroundColor='green';
-      <% }); %>
+      calendarBody.appendChild(row);
+    }
+    <% dateArray.forEach((attendance)=>{ %>
+    document.getElementById(<%= attendance %>).style.backgroundColor = 'green';
+    <% }); %>
 
-// console.log(window.location.host);
-      function deleteUser() {
-
+    function deleteUser() {
       var requestOptions = {
         method: 'DELETE',
         redirect: 'follow',
         credentials: "include"
       };
-      console.log(window.location.hostname+"/employee");
-      fetch(location.protocol+'//'+window.location.host+"/employee", requestOptions)
+      console.log(window.location.hostname + "/employee");
+      fetch(location.protocol + '//' + window.location.host + "/employee", requestOptions)
         .then(response => response.text())
         .then(result => window.location.reload())
         .catch(error => console.log('error', error));
-}
-      
+    }
 
-      //function toggleButtons() {
-         //event.preventDefault(); // prevent default form submission behavior
+
     var signInButton = document.querySelector(".form-signin .sign-in button");
     var signOutForm = document.querySelector(".form-signin .sign-out");
     var signOutButton = document.querySelector(".form-signin .sign-out button");
-    //signOutButton.style.display = "inline";
-    //return false;
-  //}
+  </script>
 
-    </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      crossorigin="anonymous"
-    ></script>
-    
-  </body>
+</body>
+
 </html>
