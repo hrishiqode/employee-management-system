@@ -9,10 +9,14 @@ export default class LoginAuthentication {
           date: new Date(),
         },
       });
-      let { loginTime } = attendance;
-      let { logoutTime } = attendance;
-      if (loginTime === null) { loginTime = 'not signed in'; }
-      if (logoutTime === null) { logoutTime = 'not signed out'; }
+      let loginTime;
+      let logoutTime;
+      if (attendance != null) {
+        const { loginTime } = attendance;
+        const { logoutTime } = attendance;
+      }
+      if (!loginTime) { loginTime = 'not signed in'; }
+      if (!logoutTime) { logoutTime = 'not signed out'; }
       res.render('employee-dashboard', {
         id: req.session.user.id,
         firstName: req.session.user.firstName,
