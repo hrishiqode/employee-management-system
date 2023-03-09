@@ -110,21 +110,11 @@ th{
 
 
 .form-signin{
-<<<<<<< HEAD
-  background-color: adb5bd;
- border-style: solid;
- width: 200px;
- border-radius: 5px;
- padding: 5px;
- margin: 10px;
- 
-=======
   width: 200px;
   height: 150px;
   padding: 5px;
   /* border: 1px solid black; */
   margin-right: 50px;
->>>>>>> fix-alert-message-in-hr-appEmployee-template
 }
 
 #calender{
