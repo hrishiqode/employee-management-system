@@ -9,7 +9,10 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
+<<<<<<< HEAD
     <base href="/"/>
+=======
+>>>>>>> origin/feature-hr-contact-api
     <title>HR Dashboard</title>
     <link
       href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
@@ -42,7 +45,7 @@
         <li class="nav-item dropdown">
           <a
             class="nav-link dropdown-toggle"
-            id="navbarDropdown" 
+            id="navbarDropdown"
             href="#"
             role="button"
             data-bs-toggle="dropdown"
@@ -83,12 +86,15 @@
                     </a>
                     <a class="nav-link">
                       <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+<<<<<<< HEAD
                       <form action="/hr/users">
                         <button style="border: azure;" type="submit">All employees</button>
                       </form>
                     </a>
                     <a class="nav-link">
                       <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+=======
+>>>>>>> origin/feature-hr-contact-api
                       <form action="/hr/employee">
                         <button style="border: azure;" type="submit">Add Employee</button>
                       </form>
@@ -116,12 +122,21 @@
               <!-- sign in sign out -->
             </div>
             <div class="flexing">
+<<<<<<< HEAD
               <div style="border: black;" class="form-signin">
                 <form action="/hr/signin">Mark attendance here :
                   <button type="submit">sign-in</button>
                 </form><%= signIn%>
                 <br>
                 <form action="/hr/signout">
+=======
+              <div class="form-signin">
+                <form action="/employee/signin">
+                  <button type="submit">sign-in</button>
+                </form><%= signIn%>
+                <br>
+                <form action="/employee/signout">
+>>>>>>> origin/feature-hr-contact-api
                   <button type="submit">sign-out</button>
                 </form><%= signOut%>
               </div>
