@@ -53,7 +53,9 @@
             aria-labelledby="navbarDropdown"
           >
             <li></li>
-            <li><a class="dropdown-item" href="#!">Logout</a></li>
+            <li><form action="/logout">
+              <button class="logout" type="submit">logout</button>
+            </form></li>
           </ul>
         </li>
       </ul>
@@ -100,30 +102,46 @@
         </div>
       <div id="layoutSidenav_content">
         <main>
-          <div class="container-fluid px-4">
-            <h1 class="mt-4">HR Dashboard</h1>
-            <ol class="breadcrumb mb-4">
-              <li class="breadcrumb-item active">Dashboard</li>
-            </ol>
-            <!-- sign in sign out -->
-            <div>
-              <form action="/hr/signin">
-                <button type="submit">sign-in</button>
-              </form><%= signIn%>
-              <br>
-              <form action="/hr/signout">
-                <button type="submit">sign-out</button>
-              </form><%= signOut%>
+          <main>
+            <div class="container-fluid px-4">
+  
+              <h1 class="mt-4">HR Dashboard</h1>
+              <!-- sign in sign out -->
             </div>
-            <!-- </div> -->
-            <br>
-            <br>
-            <br>
-
-            <!-- info table -->
-            <table>Employee Info:
+            <div class="flexing">
+              <div class="form-signin">
+                <form action="/employee/signin">
+                  <button type="submit">sign-in</button>
+                </form><%= signIn%>
+                <br>
+                <form action="/employee/signout">
+                  <button type="submit">sign-out</button>
+                </form><%= signOut%>
+              </div>
+  
+              <table id="calender">
+                <thead>
+                  <tr>
+                    <th>Sun</th>
+                    <th>Mon</th>
+                    <th>Tue</th>
+                    <th>Wed</th>
+                    <th>Thu</th>
+                    <th>Fri</th>
+                    <th>Sat</th>
+                  </tr>
+                </thead>
+                <tbody id="calendar-body">
+                
+                </tbody>
+              </table>
+             
+              
+            </div>
+            <div class="info-table">HR Info :
+            <table>
               <tr>
-                <th>Employee id</th><td> <%= id %></td>
+                <th>HR id</th><td> <%= id %></td>
               </tr>
               <tr>
                 <th>First name</th><td> <%= firstName %></td>
@@ -135,8 +153,12 @@
                 <th>Email</th><td> <%= email %></td>
               </tr>
             <table>
+          <div>
+          
           </div>
-        </main>
+            
+            
+           </main>
         <footer class="py-4 bg-light mt-auto">
           <div class="container-fluid px-4">
             <div
@@ -153,21 +175,56 @@
         </footer>
       </div>
     </div>
+    <script>
+      // Get the current date
+      let today = new Date();
+  
+      // Get the number of days in the current month
+      let daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+  
+      // Get the first day of the current month
+      let firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
+  
+      // Populate the calendar with dates
+      let calendarBody = document.getElementById("calendar-body");
+      let date = 1;
+      for (let i = 0; i < 6; i++) {
+        let row = document.createElement("tr");
+        for (let j = 0; j < 7; j++) {
+          let cell = document.createElement("td");
+          if (i === 0 && j < firstDay) {
+            // Empty cell before the first day of the month
+            cell.textContent = "";
+          } else if (date > daysInMonth) {
+            // Empty cell after the last day of the month
+            cell.textContent = "";
+          } else {
+            // Cell with date
+            cell.textContent = date;
+            cell.id = date;
+            if (date === today.getDate() && today.getMonth() === new Date().getMonth()) {
+              // Highlight the current date with the 'today' class
+              cell.classList.add("today");
+            }
+            date++;
+          }
+          row.appendChild(cell);
+        }
+        calendarBody.appendChild(row);
+      }
+
+     
+     if('5'.innerHTML=5){
+      console.log(5);
+      document.getElementById('5').style.backgroundColor = 'red';
+     }
+      
+      
+    </script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
       crossorigin="anonymous"
     ></script>
-    <script src="js/scripts.js"></script>
-    <script
-      src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js"
-      crossorigin="anonymous"
-    ></script>
-    <script src="assets/demo/chart-area-demo.js"></script>
-    <script src="assets/demo/chart-bar-demo.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/simple-datatables@latest"
-      crossorigin="anonymous"
-    ></script>
-    <script src="js/datatables-simple-demo.js"></script>
   </body>
 </html>
