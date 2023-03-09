@@ -165,7 +165,10 @@ th{
 *::before,
 *::after {
   box-sizing: border-box;
+<<<<<<< HEAD
   border-color: #04414d;
+=======
+>>>>>>> origin/employee-dashboard
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -11796,6 +11799,10 @@ body {
   width: 20px !important;
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
+<<<<<<< HEAD
 }
 
 
+=======
+}
+>>>>>>> origin/employee-dashboard
