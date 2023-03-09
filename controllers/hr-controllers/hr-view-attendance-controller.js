@@ -1,19 +1,11 @@
 import bodyParser from 'body-parser';
 import { Router } from 'express';
-import db from '../models/index.cjs';
+import db from '../../models/index.cjs';
 
-const viewAttendanceRouter = Router();
+const hrViewAttendanceRouter = Router();
 
-viewAttendanceRouter.route('/attendance/:page')
-  .all(async (req, res, next) => {
-    if (req.session && req.session.user) {
-      next();
-    } else {
-      res.redirect('/login');
-    }
-  })
+hrViewAttendanceRouter.route('/attendance/:page')
   .get(async (req, res, next) => {
-    console.log('yelop');
     if (req.params.page <= 0) {
       req.params.page = 1;
     }
@@ -25,7 +17,7 @@ viewAttendanceRouter.route('/attendance/:page')
       },
     );
     console.log(req.session.user.firstName);
-    res.render('employee-attendance', {
+    res.render('hr-attendance', {
       attendances: attendancesArray,
       page: parseInt(req.params.page),
       firstName: req.session.user.firstName,
@@ -33,4 +25,4 @@ viewAttendanceRouter.route('/attendance/:page')
     });
   });
 
-export default viewAttendanceRouter;
+export default hrViewAttendanceRouter;
