@@ -45,46 +45,59 @@
             <div style="background-color: rgba(255,255,255,0.13);" id="layoutSidenav_nav">
                 <nav  class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <div class="sb-sidenav-menu-heading">QodeHR</div>
-                            <a class="nav-link">
-                                <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                                <form action="/employee">
-                                  <button style="border: azure;" type="submit">Dashboard</button>
-                                </form>
-                              </a>
-                              <div class="sb-sidenav-menu-heading">Details</div>
-                              
-                              <a class="nav-link">
-                                  <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                                  <form action="/employee/attendance/1">
-                                    <button style="border: azure;" type="submit">Attendance</button>
-                                  </form>
-                              </a>
-                              <a class="nav-link">
-                                <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                                <form action="/employee/contact">
-                                  <button style="border: azure;" type="submit">Contact us</button>
-                                </form>
-                              </a>
-                        </div>
+                      <div class="nav">
+                        <div class="sb-sidenav-menu-heading">QodeHR</div>
+                        <a class="nav-link">
+                          <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                          <form action="/hr">
+                            <button  style="border: azure;" type="submit">Dashboard</button>
+                          </form>
+                        </a>
+                        <div class="sb-sidenav-menu-heading">Details</div>
+                        
+                        <a class="nav-link">
+                            <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                            <form action="/hr/attendance/1">
+                              <button style="border: azure;" type="submit">Attendance</button>
+                            </form>
+                        </a>
+                        <a class="nav-link">
+                            <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                            <form action="/hr/users">
+                              <button style="border: azure;" type="submit">All employees</button>
+                            </form>
+                          </a>
+                        <a class="nav-link">
+                          <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                          <form action="/hr/employee">
+                            <button style="border: azure;" type="submit">Add Employee</button>
+                          </form>
+                        </a>
+                       
+                        <a class="nav-link">
+                          <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                          <form action="/hr/contact">
+                            <button style="border: azure;" type="submit">Contact us</button>
+                          </form>
+                      </a>
+                    </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        <%=firstName%>
-                    </div>
+                      <div class="small">Logged in as:</div>
+                      <%=firstName%>
+                  </div>
                 </nav>
             </div>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Calender</h1>
+                        <h1 class="mt-4">Attendance</h1>
                         <div class="row">
                             <div class="col-xl-8">
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        Attendance
+                                        Your Profile attendance
                                                                     </div>
                                     <table>
                                         <thead>
@@ -105,12 +118,12 @@
                                         </tbody>
                                     </table>
                                 </div>
-                                <form action="/employee/attendance/<%= (page-1) %>">
-                                    <button>
+                                <form action="/hr/attendance/<%= (page-1) %>">
+                                    <button >
                                         prev
                                     </button>
                                 </form>
-                                <form action="employee/attendance/<%= (page+1) %>">
+                                <form action="/hr/attendance/<%= (page+1) %>">
                                     <button>
                                         next
                                     </button>
