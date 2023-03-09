@@ -100,7 +100,9 @@
           <div class="container-fluid px-4">
 
             <h1 class="mt-4">Employee Dashboard</h1>
+            <br>
             <!-- sign in sign out -->
+<<<<<<< HEAD
           </div>
           <div class="flexing">
             <div class="form-signin">
@@ -132,6 +134,39 @@
            
             
           </div>
+=======
+            <br>
+            
+          </div>
+          <div class="flexing">
+
+            
+            <div class="form-signin"> Mark Your attendance:
+              <form class="sign-in" action="/employee/signin">
+                <button type="submit" style="display: <%= signIn == 'not signed in'?'block':'none' %>;">sign-in :<%= signIn%></button>
+              </form>
+              <br>
+              <form class="sign-out" action="/employee/signout" style="display:<%= signOut == 'not signed out'?'block':'block' %>;">
+                <button type="submit">sign-out :<%= signOut%></button>
+              </form>
+            </div>
+            <table id="calender">
+              <thead>
+                <tr>
+                  <th>Sun</th>
+                  <th>Mon</th>
+                  <th>Tue</th>
+                  <th>Wed</th>
+                  <th>Thu</th>
+                  <th>Fri</th>
+                  <th>Sat</th>
+                </tr>
+              </thead>
+              <tbody id="calendar-body">             
+              </tbody>
+            </table>
+          </div>
+>>>>>>> fix-all-footers
           <div class="info-table">Employee Info :
           <table>
             <tr>
@@ -147,6 +182,7 @@
               <th>Email</th><td> <%= email %></td>
             </tr>
           <table>
+<<<<<<< HEAD
         <div>
         
         </div>
@@ -155,6 +191,14 @@
          </main>
         <footer class="py-4 bg-light mt-auto">
           <div class="container-fluid ">
+=======
+        <div>        
+        </div>
+         </main>
+         <br>
+        <!-- <footer class="py-4 bg-light mt-auto">
+          <div class="">
+>>>>>>> fix-all-footers
             <div
               class="d-flex align-items-center justify-content-between small"
             >
@@ -166,18 +210,30 @@
               </div>
             </div>
           </div>
-        </footer>
+        </footer> -->
       </div>
     </div>
    
 
     <script>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> fix-all-footers
       // Get the current date
       let today = new Date();
   
       // Get the number of days in the current month
+<<<<<<< HEAD
       let daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
   
+=======
+      let attArray=[];
+      let daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+      
+      console.log(attArray);
+>>>>>>> fix-all-footers
       // Get the first day of the current month
       let firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
   
@@ -208,6 +264,7 @@
         }
         calendarBody.appendChild(row);
       }
+<<<<<<< HEAD
 
      
      if('5'.innerHTML=5){
@@ -216,6 +273,22 @@
      }
       
       
+=======
+      <% dateArray.forEach((attendance)=>{ %>
+        document.getElementById(<%= attendance %>).style.backgroundColor='green';
+      <% }); %>
+      
+
+      //function toggleButtons() {
+         //event.preventDefault(); // prevent default form submission behavior
+    var signInButton = document.querySelector(".form-signin .sign-in button");
+    var signOutForm = document.querySelector(".form-signin .sign-out");
+    var signOutButton = document.querySelector(".form-signin .sign-out button");
+    //signOutButton.style.display = "inline";
+    //return false;
+  //}
+
+>>>>>>> fix-all-footers
     </script>
 
     <script

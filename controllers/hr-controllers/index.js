@@ -7,6 +7,8 @@ import hrDashboardRouter from './hr-dashboard-controller.js';
 import hrDownloadAttendanceCSVRouter from './hr-download-attendance-csv.js';
 import hrViewAttendanceRouter from './hr-view-attendance-controller.js';
 
+import hrViewUserListRouter from './hr-view-user-list.js';
+
 const hrRouter = Router();
 hrRouter.use(LoginAuthentication.hrCheck);
 hrRouter.use(hrDashboardRouter);
@@ -14,5 +16,7 @@ hrRouter.use(hrAddEmployeeRouter);
 hrRouter.use(hrContactRouter);
 hrRouter.use(hrAttendanceRouter);
 hrRouter.use(hrViewAttendanceRouter);
+
+hrRouter.use(hrViewUserListRouter);
 hrRouter.use(hrDownloadAttendanceCSVRouter);
 export default hrRouter;

@@ -83,6 +83,15 @@
                     </a>
                     <a class="nav-link">
                       <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+<<<<<<< HEAD
+=======
+                      <form action="/hr/users">
+                        <button style="border: azure;" type="submit">All employees</button>
+                      </form>
+                    </a>
+                    <a class="nav-link">
+                      <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+>>>>>>> fix-all-footers
                       <form action="/hr/employee">
                         <button style="border: azure;" type="submit">Add Employee</button>
                       </form>
@@ -110,6 +119,7 @@
               <!-- sign in sign out -->
             </div>
             <div class="flexing">
+<<<<<<< HEAD
               <div class="form-signin">
                 <form action="/hr/signin">
                   <button type="submit">sign-in</button>
@@ -118,6 +128,16 @@
                 <form action="/hr/signout">
                   <button type="submit">sign-out</button>
                 </form><%= signOut%>
+=======
+              <div class="form-signin"> Mark Your attendance:
+                <form class="sign-in" action="/hr/signin">
+                  <button type="submit" style="display: <%= signIn == 'not signed in'?'block':'none' %>">sign-in :<%= signIn%></button>
+                </form>
+                <br>
+                <form class="sign-out" action="/hr/signout" style="display:<%= signOut == 'not signed out'?'block':'block' %>">
+                  <button type="submit">sign-out :<%= signOut%></button>
+                </form>
+>>>>>>> fix-all-footers
               </div>
   
               <table id="calender">
@@ -160,7 +180,12 @@
             
             
            </main>
+<<<<<<< HEAD
         <footer class="py-4 bg-light mt-auto">
+=======
+           <br>
+        <!-- <footer class="py-4 bg-light mt-auto">
+>>>>>>> fix-all-footers
           <div class="container-fluid px-4">
             <div
               class="d-flex align-items-center justify-content-between small"
@@ -173,7 +198,11 @@
               </div>
             </div>
           </div>
+<<<<<<< HEAD
         </footer>
+=======
+        </footer> -->
+>>>>>>> fix-all-footers
       </div>
     </div>
     <script>
@@ -181,8 +210,15 @@
       let today = new Date();
   
       // Get the number of days in the current month
+<<<<<<< HEAD
       let daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
   
+=======
+      let attArray=[];
+      let daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+      
+      console.log(attArray);
+>>>>>>> fix-all-footers
       // Get the first day of the current month
       let firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
   
@@ -213,6 +249,7 @@
         }
         calendarBody.appendChild(row);
       }
+<<<<<<< HEAD
 
      
      if('5'.innerHTML=5){
@@ -220,6 +257,22 @@
       document.getElementById('5').style.backgroundColor = 'red';
      }
       
+=======
+      <% dateArray.forEach((attendance)=>{ %>
+        document.getElementById(<%= attendance %>).style.backgroundColor='green';
+      <% }); %>
+      
+
+      //function toggleButtons() {
+         //event.preventDefault(); // prevent default form submission behavior
+    var signInButton = document.querySelector(".form-signin .sign-in button");
+    var signOutForm = document.querySelector(".form-signin .sign-out");
+    var signOutButton = document.querySelector(".form-signin .sign-out button");
+    //signOutButton.style.display = "inline";
+    //return false;
+  //}
+
+>>>>>>> fix-all-footers
       
     </script>
 
