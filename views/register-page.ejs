@@ -6,7 +6,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="register-style.css">
-    
+
 </head>
 <body>
     <div class="background">
@@ -14,50 +14,42 @@
         <div class="shape"></div> 
     </div>
 
-    <form action="Register">
+    <form action="Register" method="post">
         <h3>QodeHR Register</h3>
         <div class="flexing">
         <div class="register-part1">
         <label for="firstname">First Name</label>
-        <input type="text" name="first name" placeholder="first name" id="username">
-        <span > <%= firstnameError %></span>
+        <input type="text" name="firstName" placeholder="first name" id="username" required>
+        <span > </span>
         <label for="lastname">Last Name</label>
-        <input type="text" name="last name" placeholder="last name" id="username">
-        <span > <%= lastnameError %></span>
+        <input type="text" name="lastName" placeholder="last name" id="username" required>
+        <span > </span>
         <label for="date">DOB</label>
-        <input type="date" name="DOB" placeholder="DOB" id="username">
-        <span > <%= dobError %></span>
+        <input type="date" name="dateOfBirth" placeholder="DOB" id="username" required>
+        <span > </span>
     </div>
     <div class="register-part2">
         <label for="password">Password</label>
-        <input type="password" name="password" placeholder="password" id="username">
-        <span > <%= passwordError %></span>
+        <input type="password" name="password" placeholder="password" id="username" required>
+        <span > </span>
         <label for="username">Username</label>
-        <input type="text" name="username" placeholder="username" id="username">
-        <span > <%= usernameError %></span>
+        <input type="text" name="username" placeholder="username" id="username" required>
+        <span > </span>
         <label for="email">email</label>
-        <input type="email" name="email" placeholder="Email" id="username">
-        <span > <%= emailError %></span>
+        <input type="email" name="email" placeholder="Email" id="username" required>
+        <span > </span>
         
 
     </div>
     <div class="task-input">
         
       </div>
-      <!-- <span> <%= roleError %></span> -->
 </div>
 
     
 
-    <ion-icon name="create-outline"></ion-icon>
-        <select id="role">
-          <option value="" disabled selected>Select Role</option>
-          <option value="2">HR</option>
-          <option value="1">Employee</option>
-        </select>
-
         <button>Register</button>
-
+        <%= message %>
        
         
        
