@@ -102,39 +102,6 @@
             <h1 class="mt-4">Employee Dashboard</h1>
             <br>
             <!-- sign in sign out -->
-<<<<<<< HEAD
-          </div>
-          <div class="flexing">
-            <div class="form-signin">
-              <form action="/employee/signin">
-                <button type="submit">sign-in</button>
-              </form><%= signIn%>
-              <br>
-              <form action="/employee/signout">
-                <button type="submit">sign-out</button>
-              </form><%= signOut%>
-            </div>
-
-            <table id="calender">
-              <thead>
-                <tr>
-                  <th>Sun</th>
-                  <th>Mon</th>
-                  <th>Tue</th>
-                  <th>Wed</th>
-                  <th>Thu</th>
-                  <th>Fri</th>
-                  <th>Sat</th>
-                </tr>
-              </thead>
-              <tbody id="calendar-body">
-              
-              </tbody>
-            </table>
-           
-            
-          </div>
-=======
             <br>
             
           </div>
@@ -166,7 +133,6 @@
               </tbody>
             </table>
           </div>
->>>>>>> fix-all-footers
           <div class="info-table">Employee Info :
           <table>
             <tr>
@@ -182,16 +148,7 @@
               <th>Email</th><td> <%= email %></td>
             </tr>
           <table>
-<<<<<<< HEAD
-        <div>
-        
-        </div>
-          
-          
-         </main>
-        <footer class="py-4 bg-light mt-auto">
-          <div class="container-fluid ">
-=======
+
         <div>        
         </div>
          </main>
@@ -216,24 +173,16 @@
    
 
     <script>
-<<<<<<< HEAD
-=======
 
 
->>>>>>> fix-all-footers
+
       // Get the current date
       let today = new Date();
   
       // Get the number of days in the current month
-<<<<<<< HEAD
       let daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
   
-=======
-      let attArray=[];
-      let daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-      
-      console.log(attArray);
->>>>>>> fix-all-footers
+      let attArray=[];      
       // Get the first day of the current month
       let firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
   
@@ -264,16 +213,7 @@
         }
         calendarBody.appendChild(row);
       }
-<<<<<<< HEAD
 
-     
-     if('5'.innerHTML=5){
-      console.log(5);
-      document.getElementById('5').style.backgroundColor = 'red';
-     }
-      
-      
-=======
       <% dateArray.forEach((attendance)=>{ %>
         document.getElementById(<%= attendance %>).style.backgroundColor='green';
       <% }); %>
@@ -288,7 +228,6 @@
     //return false;
   //}
 
->>>>>>> fix-all-footers
     </script>
 
     <script
