@@ -1,31 +1,31 @@
 import db from '../models/index.cjs';
 
 export default class LoginAuthentication {
-  static async loginCheck(req, res, next) {
+  static async employeeCheck(req, res, next) {
+    console.log(req.session.user.role.name);
+    console.log('no');
+    if (req.session.user.role.name === 'employee') {
+      next();
+    } else {
+      res.redirect('/hr');
+    }
+  }
+
+  static authCheck(req, res, next) {
     if (req.session && req.session.user) {
-      const attendance = await db.attendances.findOne({
-        where: {
-          userId: req.session.user.id,
-          date: new Date(),
-        },
-      });
-      let loginTime;
-      let logoutTime;
-      if (attendance) {
-        loginTime = attendance.loginTime;
-        logoutTime = attendance.logoutTime;
-      }
-      if (!loginTime) { loginTime = 'not signed in'; }
-      if (!logoutTime) { logoutTime = 'not signed out'; }
-      res.render('employee-dashboard', {
-        id: req.session.user.id,
-        firstName: req.session.user.firstName,
-        lastName: req.session.user.lastName,
-        dateOfBirth: req.session.user.lastName,
-        email: req.session.user.email,
-        signIn: loginTime,
-        signOut: logoutTime,
-      });
-    } else { res.redirect('/login'); }
+      next();
+    } else {
+      console.log('not logged in');
+      res.redirect('/login');
+    }
+  }
+
+  static async hrCheck(req, res, next) {
+    console.log('yup');
+    if (req.session.user.role.name === 'hr') {
+      next();
+    } else {
+      res.redirect('/employee');
+    }
   }
 }
