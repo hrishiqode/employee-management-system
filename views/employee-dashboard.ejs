@@ -9,12 +9,13 @@
     />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <base href="/"/>
     <title>Dashboard</title>
     <link
       href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css"
       rel="stylesheet"
     />
-    <link href="styles.css" rel="stylesheet" />
+    <link href="styles.css" rel="stylesheet" type=""/>
     <script
       src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js"
       crossorigin="anonymous"
@@ -75,7 +76,9 @@
                         </a>
                         <a class="nav-link" href="attendance.html">
                             <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                            Attendance
+                            <form action="/attendance/1">
+                              <button type="submit">Attendance</button>
+                            </form>
                         </a>
                         <a class="nav-link" href="contact.html">
                             <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
