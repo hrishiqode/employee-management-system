@@ -19,6 +19,9 @@ viewAttendanceRouter.route('/attendance/:page')
     }
     const attendancesArray = await db.attendances.findAll(
       {
+        where: {
+          userId: req.session.user.id,
+        },
         limit: 5,
         order: [['date', 'DESC']],
         offset: (req.params.page - 1) * 5,

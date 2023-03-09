@@ -9,13 +9,14 @@ hrViewAttendanceRouter.route('/attendance/:page')
     if (req.params.page <= 0) {
       req.params.page = 1;
     }
-    const attendancesArray = await db.attendances.findAll(
-      {
-        limit: 5,
-        order: [['date', 'DESC']],
-        offset: (req.params.page - 1) * 5,
+    const attendancesArray = await db.attendances.findAll({
+      where: {
+        userId: req.session.user.id,
       },
-    );
+      limit: 5,
+      order: [['date', 'DESC']],
+      offset: (req.params.page - 1) * 5,
+    });
     console.log(req.session.user.firstName);
     res.render('hr-attendance', {
       attendances: attendancesArray,
