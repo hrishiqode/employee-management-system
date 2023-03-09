@@ -5,7 +5,7 @@
     box-sizing: border-box;
 }
 body{
-    background-color: #e3e3e7;
+    background-color: aliceblue !important;;
 }
 .background{
     width: 430px;
@@ -80,6 +80,7 @@ input{
     border-radius: 3px;
     padding: 0 10px;
     margin-top: 8px;
+    margin-right: 5px;
     font-size: 14px;
     font-weight: 300;
 }

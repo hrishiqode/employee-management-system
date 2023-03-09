@@ -10,6 +10,131 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+
+
+ .form-signin button{
+  background-color: cornflowerblue;
+ }
+ .form-signin .signOut{
+  background-color: coral;
+ }
+
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.row {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+
+
+
+.sign-in{
+
+}
+
+.sign-out{
+  
+}
+
+ footer {
+  position: fixed;
+  height: 100px;
+  bottom: 0;
+  width: 100%;
+}
+
+
+ table {
+ 
+border-collapse: collapse;
+margin: 25px 0;
+font-size: 0.9em;
+font-family: sans-serif;
+min-width: 400px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+table thead tr {
+background-color: #009879;
+color: #ffffff;
+text-align: left;
+}
+table th,
+table td {
+padding: 12px 15px;
+}
+
+
+
+
+.logout{
+  border: none;
+ text-align: center;
+ background-color: #fff;
+
+}
+
+
+thead th {
+  border: 1px solid black;
+}
+td{
+  border: 1px solid black;
+
+}
+
+th{
+  border: 1px solid black;
+}
+
+.info-table {
+  margin-left: 30px ;
+  
+}
+
+ .flexing{
+  display: flex;
+  margin :10px;
+  padding: 10px;
+  justify-content: center;
+ }
+
+
+.form-signin{
+  width: 200px;
+  height: 150px;
+  padding: 5px;
+  /* border: 1px solid black; */
+  margin-right: 50px;
+}
+
+#calender{
+  border: 1px solid black;
+
+  border-style: solid;
+  width: 450px;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+}
+ footer {
+  position: absolute;
+  bottom: 0;
+  width: 74%;
+  height: 60px;
+}
+
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -68,6 +193,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  border-color: #04414d;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -11699,3 +11825,5 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+
