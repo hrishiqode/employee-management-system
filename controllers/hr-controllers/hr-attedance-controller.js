@@ -1,17 +1,10 @@
 import bodyParser from 'body-parser';
 import { Router } from 'express';
-import db from '../models/index.cjs';
+import db from '../../models/index.cjs';
 
-const attendanceRouter = Router();
+const hrAttendanceRouter = Router();
 
-attendanceRouter.route('/signin')
-  .all(async (req, res, next) => {
-    if (req.session && req.session.user) {
-      next();
-    } else {
-      res.redirect('/login');
-    }
-  })
+hrAttendanceRouter.route('/signin')
   .get(async (req, res, next) => {
     const userId = req.session.user.id;
     let attendance = await db.attendances.findOne({
@@ -39,7 +32,7 @@ attendanceRouter.route('/signin')
     attendanceArray.forEach((attendance) => {
       attendance.date.substring(5, 7) == (new Date()).getMonth() + 1 ? dateArray.push(parseInt(attendance.date.slice(-2))) : null;
     });
-    res.render('employee-dashboard', {
+    res.render('hr-dashboard', {
       id: req.session.user.id,
       firstName: req.session.user.firstName,
       lastName: req.session.user.lastName,
@@ -50,14 +43,7 @@ attendanceRouter.route('/signin')
       dateArray,
     });
   });
-attendanceRouter.route('/signout')
-  .all(async (req, res, next) => {
-    if (req.session && req.session.user) {
-      next();
-    } else {
-      res.redirect('/login');
-    }
-  })
+hrAttendanceRouter.route('/signout')
   .get(async (req, res, next) => {
     const userId = req.session.user.id;
     let attendance = await db.attendances.findOne({
@@ -84,12 +70,12 @@ attendanceRouter.route('/signout')
       },
       attributes: ['date'],
     });
-    console.log(attendance);
     const dateArray = [];
     attendanceArray.forEach((attendance) => {
       attendance.date.substring(5, 7) == (new Date()).getMonth() + 1 ? dateArray.push(parseInt(attendance.date.slice(-2))) : null;
     });
-    res.render('employee-dashboard', {
+    console.log(attendance);
+    res.render('hr-dashboard', {
       id: req.session.user.id,
       firstName: req.session.user.firstName,
       lastName: req.session.user.lastName,
@@ -100,4 +86,4 @@ attendanceRouter.route('/signout')
       dateArray,
     });
   });
-export default attendanceRouter;
+export default hrAttendanceRouter;
