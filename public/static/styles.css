@@ -68,6 +68,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  border-color: #04414d;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -11699,3 +11700,5 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+
