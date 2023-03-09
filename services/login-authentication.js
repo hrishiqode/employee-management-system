@@ -13,6 +13,9 @@ export default class LoginAuthentication {
 
   static authCheck(req, res, next) {
     if (req.session && req.session.user) {
+      res.set('Cache-Control', 'no-cache, no-store, must-revalidate');
+      res.set('Pragma', 'no-cache');
+      res.set('Expires', 0);
       next();
     } else {
       console.log('not logged in');
