@@ -6,20 +6,22 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Profile</title>
+        <title>emp contact us</title>
+        <base href="/"/>
         <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
+        <link href="styles.css" rel="stylesheet" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/js/all.min.js" crossorigin="anonymous"></script>
     </head>
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">QodeHR</a>
+            <a class="navbar-brand ps-3" href="index.html">Qode HR</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
+                    
                 </div>
             </form>
             <!-- Navbar-->
@@ -40,68 +42,65 @@
                 <nav  class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
                     <div class="sb-sidenav-menu">
                         <div class="nav">
-                            <div class="sb-sidenav-menu-heading">QodeHR</div>
-                            <a class="nav-link" href="index.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
-                            <div class="sb-sidenav-menu-heading">Details</div>
-                            <a class="nav-link" href="profile.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
-                                Profile
-                            </a>
-                            <a class="nav-link" href="attendance.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-                                Attendance
-                            </a>
-                            <a class="nav-link" href="contact.html">
-                                <div class="sb-nav-link-icon"><i class="fas fa-table"></i></div>
-                                Contact Us
-                            </a>
-                        </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
+                          <div class="sb-sidenav-menu-heading">QodeHR</div>
+                          <a class="nav-link">
+                            <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                            <form action="/hr">
+                              <button  style="border: azure;" type="submit">Dashboard</button>
+                            </form>
+                          </a>
+                          <div class="sb-sidenav-menu-heading">Details</div>
+                          
+                          <a class="nav-link">
+                              <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                              <form action="/hr/attendance/1">
+                                <button style="border: azure;" type="submit">Attendance</button>
+                              </form>
+                          </a>
+                          <a class="nav-link">
+                            <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                            <form action="/hr/users">
+                              <button style="border: azure;" type="submit">All employees</button>
+                            </form>
+                          </a>
+                          <a class="nav-link">
+                            <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                            <form action="/hr/employee">
+                              <button style="border: azure;" type="submit">Add Employee</button>
+                            </form>
+                          </a>
+                         
+                          <a class="nav-link">
+                            <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
+                            <form action="/hr/contact">
+                              <button style="border: azure;" type="submit">Contact us</button>
+                            </form>
+                        </a>
+                      </div>
+                      </div>
+                      <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        EMPLOYEE
+                        <%=firstName%>
                     </div>
-                </nav>
-            </div>
+                  </nav>
+              </div>
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Profile</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Profile</li>
-                        </ol>
+                        <h1 class="mt-4">Contact</h1>
                         <div class="row">
                             <div class="col-xl-12">
                                 <div class="card mb-4">
                                     <div class="card-header">
                                         <i class="fas fa-chart-area me-1"></i>
-                                        Employee Profile
+                                        Contact Us
                                     </div>
                                     <br>
                                     <div class="container">
                                         <div class="row">
-                                            <div class="col-sm-4">
-                                                <label class="label">First Name</label>
-                                                <input type="text" class="form-control" placeholder="First Name"/>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <label class="label">Last Name</label>
-                                                <input type="text" class="form-control" placeholder="Last Name"/>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <label class="label">Email</label>
-                                                <input type="email" class="form-control" placeholder="email"/>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <label class="label">Phone Number</label>
-                                                <input type="number" class="form-control" placeholder="Number"/>
-                                            </div>
-                                            <div class="col-sm-4">
-                                                <label class="label">DOB</label>
-                                                <input type="date" class="form-control" placeholder="Name"/>
+                                            <div class="col-sm-12">
+                                                <h5>Email: email@QodeHR.com</h3>
+                                                <h5>Phone: +(91) 0123456789</h3>
                                             </div>
                                         </div>
                                     </div>
@@ -111,7 +110,6 @@
                         </div>
                     </div>
                 </main>
-                </div>
                 <footer class="py-4 bg-light mt-auto">
                     <div class="container-fluid px-4">
                         <div class="d-flex align-items-center justify-content-between small">
