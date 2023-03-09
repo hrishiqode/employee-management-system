@@ -17,6 +17,16 @@ dashboardRouter.route('/')
       loginTime = attendance.loginTime;
       logoutTime = attendance.logoutTime;
     }
+    const attendanceArray = await db.attendances.findAll({
+      where: {
+        userId: req.session.user.id,
+      },
+      attributes: ['date'],
+    });
+    const dateArray = [];
+    attendanceArray.forEach((attendance) => {
+      attendance.date.substring(5, 7) == (new Date()).getMonth() + 1 ? dateArray.push(parseInt(attendance.date.slice(-2))) : null;
+    });
     if (!loginTime) { loginTime = 'not signed in'; }
     if (!logoutTime) { logoutTime = 'not signed out'; }
     res.render('employee-dashboard', {
@@ -27,6 +37,7 @@ dashboardRouter.route('/')
       email: req.session.user.email,
       signIn: loginTime,
       signOut: logoutTime,
+      dateArray,
     });
   });
 export default dashboardRouter;

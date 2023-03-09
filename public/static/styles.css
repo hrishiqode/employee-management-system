@@ -11,6 +11,71 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
 
+
+
+ .form-signin button{
+  background-color: cornflowerblue;
+ }
+ .form-signin .signOut{
+  background-color: coral;
+ }
+
+.container {
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.row {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+
+
+
+
+.sign-in{
+
+}
+
+.sign-out{
+  
+}
+
+ footer {
+  position: fixed;
+  height: 100px;
+  bottom: 0;
+  width: 100%;
+}
+
+
+ table {
+ 
+border-collapse: collapse;
+margin: 25px 0;
+font-size: 0.9em;
+font-family: sans-serif;
+min-width: 400px;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+table thead tr {
+background-color: #009879;
+color: #ffffff;
+text-align: left;
+}
+table th,
+table td {
+padding: 12px 15px;
+}
+
+
+
+
 .logout{
   border: none;
  text-align: center;
@@ -33,16 +98,19 @@ th{
 
 .info-table {
   margin-left: 30px ;
+  
 }
 
  .flexing{
   display: flex;
   margin :10px;
   padding: 10px;
+  justify-content: center;
  }
 
 
 .form-signin{
+<<<<<<< HEAD
   background-color: adb5bd;
  border-style: solid;
  width: 200px;
@@ -50,6 +118,13 @@ th{
  padding: 5px;
  margin: 10px;
  
+=======
+  width: 200px;
+  height: 150px;
+  padding: 5px;
+  /* border: 1px solid black; */
+  margin-right: 50px;
+>>>>>>> fix-alert-message-in-hr-appEmployee-template
 }
 
 #calender{
