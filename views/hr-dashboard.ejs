@@ -15,75 +15,11 @@
 </head>
 
 <body class="sb-nav-fixed">
-  <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-    <!-- Navbar Brand-->
-    <a class="navbar-brand ps-3" href="#">QodeHR</a>
-    <!-- Sidebar Toggle-->
-    <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!">
-      <i class="fas fa-bars"></i>
-    </button>
-    <!-- Navbar Search-->
-    <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0"></form>
-    <!-- Navbar-->
-    <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-          <li></li>
-          <li>
-            <form action="/logout">
-              <button class="logout" type="submit">logout</button>
-            </form>
-          </li>
-        </ul>
-      </li>
-    </ul>
-  </nav>
+  <%-include('partials/hr-header') %>
   <div style="background-color: rgba(255,255,255,0.13);" id="layoutSidenav">
     <div style="background-color: rgba(255,255,255,0.13);" id="layoutSidenav_nav">
-      <nav class="sb-sidenav accordion sb-sidenav-light" id="sidenavAccordion">
-        <div class="sb-sidenav-menu">
-          <div class="nav">
-            <div class="sb-sidenav-menu-heading">QodeHR</div>
-            <a class="nav-link">
-              <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-              <form action="/hr">
-                <button style="border: azure;" type="submit">Dashboard</button>
-              </form>
-            </a>
-            <div class="sb-sidenav-menu-heading">Details</div>
+      <%-include('partials/hr-side-nav') %>
 
-            <a class="nav-link">
-              <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-              <form action="/hr/attendance/1">
-                <button style="border: azure;" type="submit">Attendance</button>
-              </form>
-            </a>
-            <a class="nav-link">
-              <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-              <form action="/hr/users">
-                <button style="border: azure;" type="submit">All employees</button>
-              </form>
-            </a>
-            <a class="nav-link">
-              <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-              <form action="/hr/employee">
-                <button style="border: azure;" type="submit">Add Employee</button>
-              </form>
-            </a>
-            <a class="nav-link">
-              <div class="sb-nav-link-icon"><i class="fas fa-address-book"></i></div>
-              <form action="/hr/contact">
-                <button style="border: azure;" type="submit">Contact us</button>
-              </form>
-            </a>
-          </div>
-        </div>
-        <div class="sb-sidenav-footer">
-          <div class="small">Logged in as:</div>
-          <%=firstName%>
-        </div>
-      </nav>
     </div>
     <div id="layoutSidenav_content">
       <main>
@@ -94,91 +30,21 @@
             <!-- sign in sign out -->
           </div>
           <div class="flexing">
-            <div class="form-signin"> 
-              <form class="sign-in" action="/hr/signin" style="display:<%= (signIn === 'not signed in' && signOut === 'not signed out') ? 'block' : 'none' %>;">
-                <button type="submit">sign-in</button>
-              </form> 
-              <form class="sign-out" action="/hr/signout" style="display:<%= (signIn !== 'not signed in' && signOut === 'not signed out') ? 'block' : 'none' %>;">
-                <button type="submit">sign-out</button>
-              </form>            
-            </div>
+            <%-include('partials/hr-sign-in-sign-out') %>
 
-            <table id="calender">
-              <thead>
-                <tr>
-                  <th>Sun</th>
-                  <th>Mon</th>
-                  <th>Tue</th>
-                  <th>Wed</th>
-                  <th>Thu</th>
-                  <th>Fri</th>
-                  <th>Sat</th>
-                </tr>
-              </thead>
-              <tbody id="calendar-body">
-              </tbody>
-            </table>
+            <%-include('partials/calender') %>
+
+           
           </div>
           <div class="info-table">HR Info :
-            <table>
-              <tr>
-                <th>HR id</th>
-                <td> <%= id %></td>
-              </tr>
-              <tr>
-                <th>First name</th>
-                <td> <%= firstName %></td>
-              </tr>
-              <tr>
-                <th>Last name</th>
-                <td> <%= lastName %></td>
-              </tr>
-              <tr>
-                <th>Email</th>
-                <td> <%= email %></td>
-              </tr>
-              <table>
+            <%-include('partials/info-table') %>
+
             <div>
           </div>
         </main>
         <br>
     </div>
   </div>
-  <script>
-    let today = new Date();
-    let attArray = [];
-    let daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-    console.log(attArray);
-    let firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
-    let calendarBody = document.getElementById("calendar-body");
-    let date = 1;
-    for (let i = 0; i < 6; i++) {
-      let row = document.createElement("tr");
-      for (let j = 0; j < 7; j++) {
-        let cell = document.createElement("td");
-        if (i === 0 && j < firstDay) {
-          cell.textContent = "";
-        } else if (date > daysInMonth) {
-          cell.textContent = "";
-        } else {
-          cell.textContent = date;
-          cell.id = date;
-          if (date === today.getDate() && today.getMonth() === new Date().getMonth()) {
-            cell.classList.add("today");
-          }
-          date++;
-        }
-        row.appendChild(cell);
-      }
-      calendarBody.appendChild(row);
-    }
-    <% dateArray.forEach((attendance)=>{ %>
-    document.getElementById(<%= attendance %>).style.backgroundColor = 'green';
-    <% }); %>
-    var signInButton = document.querySelector(".form-signin .sign-in button");
-    var signOutForm = document.querySelector(".form-signin .sign-out");
-    var signOutButton = document.querySelector(".form-signin .sign-out button");
-  </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 </body>
 </html>
