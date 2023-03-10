@@ -34,7 +34,6 @@
         redirect: 'follow',
         credentials: "include"
       };
-      console.log(window.location.hostname + "/employee");
       fetch(location.protocol + '//' + window.location.host + "/employee", requestOptions)
         .then(response => response.text())
         .then(result => window.location.reload())

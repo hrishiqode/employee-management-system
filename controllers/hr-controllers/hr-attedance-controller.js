@@ -74,7 +74,6 @@ hrAttendanceRouter.route('/signout')
     attendanceArray.forEach((attendance) => {
       attendance.date.substring(5, 7) == (new Date()).getMonth() + 1 ? dateArray.push(parseInt(attendance.date.slice(-2))) : null;
     });
-    console.log(attendance);
     res.render('hr-dashboard', {
       id: req.session.user.id,
       firstName: req.session.user.firstName,

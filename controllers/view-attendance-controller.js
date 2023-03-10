@@ -13,7 +13,6 @@ viewAttendanceRouter.route('/attendance/:page')
     }
   })
   .get(async (req, res, next) => {
-    console.log('yelop');
     if (req.params.page <= 0) {
       req.params.page = 1;
     }
@@ -27,7 +26,6 @@ viewAttendanceRouter.route('/attendance/:page')
         offset: (req.params.page - 1) * 5,
       },
     );
-    console.log(req.session.user.firstName);
     res.render('employee-attendance', {
       attendances: attendancesArray,
       page: parseInt(req.params.page),

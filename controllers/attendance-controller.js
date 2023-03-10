@@ -84,7 +84,7 @@ attendanceRouter.route('/signout')
       },
       attributes: ['date'],
     });
-    console.log(attendance);
+   
     const dateArray = [];
     attendanceArray.forEach((attendance) => {
       attendance.date.substring(5, 7) == (new Date()).getMonth() + 1 ? dateArray.push(parseInt(attendance.date.slice(-2))) : null;

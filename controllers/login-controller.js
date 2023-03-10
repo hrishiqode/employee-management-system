@@ -21,7 +21,7 @@ loginRouter.route('/login')
       req.session.authenticated = true;
       req.session.user = resultedUser;
       if (req.session.user.role.name === 'admin') { res.redirect('/admin'); } else { res.redirect('/employee'); }
-      console.log('hello');
+    
     }
   });
 loginRouter.route('/')

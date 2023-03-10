@@ -17,7 +17,6 @@ hrViewAttendanceRouter.route('/attendance/:page')
       order: [['date', 'DESC']],
       offset: (req.params.page - 1) * 5,
     });
-    console.log(req.session.user.firstName);
     res.render('hr-attendance', {
       attendances: attendancesArray,
       page: parseInt(req.params.page),

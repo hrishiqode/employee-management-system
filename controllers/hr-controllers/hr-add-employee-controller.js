@@ -10,8 +10,6 @@ hrAddEmployeeRouter.route('/employee')
   })
   .all(bodyParser.urlencoded())
   .post(async (req, res, next) => {
-    console.log('this here');
-    console.log(req.body);
     if (await db.users.findOne({
       where: { username: req.body.username },
     })) {
