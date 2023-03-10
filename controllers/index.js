@@ -1,5 +1,6 @@
 import { Router } from 'express';
 import LoginAuthentication from '../services/login-authentication.js';
+import adminRouter from './admin-controllers/index.js';
 import attendanceRouter from './attendance-controller.js';
 import contactRouter from './contact-controller.js';
 import dashboardRouter from './dashboard-controller.js';
@@ -21,6 +22,7 @@ const protectedRouter = Router();
 protectedRouter.use(LoginAuthentication.authCheck);
 protectedRouter.use('/hr', hrRouter);
 protectedRouter.use('/employee', employeeRouter);
+protectedRouter.use('/admin', adminRouter);
 const publicRouter = Router();
 publicRouter.use(loginRouter);
 publicRouter.use(logoutRouter);

@@ -23,6 +23,12 @@ module.exports = {
         name: 'employee',
         createdAt: new Date(),
         updatedAt: new Date(),
+      },
+      {
+        id: 3,
+        name: 'admin',
+        createdAt: new Date(),
+        updatedAt: new Date(),
       }], {});
   },
 

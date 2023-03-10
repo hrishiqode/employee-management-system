@@ -23,6 +23,17 @@ module.exports = {
       createdAt: new Date(),
       updatedAt: new Date(),
     },
+    {
+      firstName: 'Hrishi',
+      lastName: 'Jadhav',
+      dateOfBirth: new Date(),
+      password: '1234',
+      username: 'hrishijadhav',
+      roleId: 3,
+      email: 'hrishijadhav@gmail.com',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
     ], {});
   },
 
