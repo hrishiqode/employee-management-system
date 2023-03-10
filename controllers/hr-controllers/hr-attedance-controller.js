@@ -22,14 +22,14 @@ hrAttendanceRouter.route('/signin')
     } else if (attendance.loginTime === null) {
       attendance.loginTime = new Date().toTimeString().substring(0, 8);
     }
-    const attendanceArray = await db.attendances.findAll({
+    const attendances = await db.attendances.findAll({
       where: {
         userId: req.session.user.id,
       },
       attributes: ['date'],
     });
-    const dateArray = [];
-    attendanceArray.forEach((attendance) => {
+    const dates = [];
+    attendances.forEach((attendance) => {
       attendance.date.substring(5, 7) == (new Date()).getMonth() + 1 ? dateArray.push(parseInt(attendance.date.slice(-2))) : null;
     });
     res.render('hr-dashboard', {
@@ -40,7 +40,7 @@ hrAttendanceRouter.route('/signin')
       email: req.session.user.email,
       signIn: attendance.loginTime,
       signOut: attendance.logoutTime ? attendance.logoutTime : 'not signed out',
-      dateArray,
+      dates,
     });
   });
 hrAttendanceRouter.route('/signout')
@@ -64,14 +64,14 @@ hrAttendanceRouter.route('/signout')
       attendance.logoutTime = (attendance.logoutTime ? attendance.logoutTime : new Date().toTimeString().substring(0, 8));
       await attendance.save();
     }
-    const attendanceArray = await db.attendances.findAll({
+    const attendances = await db.attendances.findAll({
       where: {
         userId: req.session.user.id,
       },
       attributes: ['date'],
     });
     const dateArray = [];
-    attendanceArray.forEach((attendance) => {
+    attendances.forEach((attendance) => {
       attendance.date.substring(5, 7) == (new Date()).getMonth() + 1 ? dateArray.push(parseInt(attendance.date.slice(-2))) : null;
     });
     res.render('hr-dashboard', {

@@ -16,7 +16,7 @@ viewAttendanceRouter.route('/attendance/:page')
     if (req.params.page <= 0) {
       req.params.page = 1;
     }
-    const attendancesArray = await db.attendances.findAll(
+    const attendances = await db.attendances.findAll(
       {
         where: {
           userId: req.session.user.id,
@@ -27,7 +27,7 @@ viewAttendanceRouter.route('/attendance/:page')
       },
     );
     res.render('employee-attendance', {
-      attendances: attendancesArray,
+      attendances,
       page: parseInt(req.params.page),
       firstName: req.session.user.firstName,
       lastName: req.session.user.lastName,
