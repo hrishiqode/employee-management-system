@@ -6,9 +6,7 @@ export default class LoginAuthentication {
     console.log('no');
     if (req.session.user.role.name === 'employee') {
       next();
-    } else {
-      res.redirect('/hr');
-    }
+    } else if (req.session.user.role.name === 'admin') { res.redirect('/admin'); } else res.redirect('/hr');
   }
 
   static authCheck(req, res, next) {
@@ -27,8 +25,17 @@ export default class LoginAuthentication {
     console.log('yup');
     if (req.session.user.role.name === 'hr') {
       next();
+    } else if (req.session.user.role.name === 'admin') res.redirect('/admin');
+    else res.redirect('/employee');
+  }
+
+  static async adminCheck(req, res, next) {
+    console.log(req.session.user.role.name);
+    console.log('no');
+    if (req.session.user.role.name === 'admin') {
+      next();
     } else {
-      res.redirect('/employee');
+      res.redirect('/hr');
     }
   }
 }

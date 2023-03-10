@@ -3,6 +3,9 @@ import connectPgSimple from 'connect-pg-simple';
 import pg from 'pg';
 import expressPgSession from 'express-pg-session';
 
+const process = require('process');
+require('dotenv').config();
+
 export default class SessionConfig {
   static memoryStore = new session.MemoryStore();
 
@@ -15,7 +18,7 @@ export default class SessionConfig {
       saveUninitialized: false,
       secure: true,
       store: new this.pgSession({ // Use another table-name than the default "session" one
-        conString: 'postgres://hjadhav:ZfAJS85UxOse@ep-fancy-sound-837594.ap-southeast-1.aws.neon.tech/neondb?sslmode=require',
+        conString: process.env.connString,
         createTableIfMissing: true,
       }),
     }));

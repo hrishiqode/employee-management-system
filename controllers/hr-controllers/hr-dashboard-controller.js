@@ -33,7 +33,7 @@ hrDashboardRouter.route('/')
       id: req.session.user.id,
       firstName: req.session.user.firstName,
       lastName: req.session.user.lastName,
-      dateOfBirth: req.session.user.lastName,
+      dateOfBirth: req.session.user.dateOfBirth,
       email: req.session.user.email,
       signIn: loginTime,
       signOut: logoutTime,

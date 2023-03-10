@@ -1,7 +1,7 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
-    await queryInterface.bulkInsert('users', [{
+    await queryInterface.bulkInsert('users', [/* {
       firstName: 'John',
       lastName: 'Doe',
       dateOfBirth: new Date(),
@@ -22,7 +22,18 @@ module.exports = {
       email: 'johnda@gmail.com',
       createdAt: new Date(),
       updatedAt: new Date(),
-    },
+    }, */
+      {
+        firstName: 'Hrishi',
+        lastName: 'Jadhav',
+        dateOfBirth: new Date(),
+        password: '1234',
+        username: 'hrishijadhav',
+        roleId: 3,
+        email: 'hrishijadhav@gmail.com',
+        createdAt: new Date(),
+        updatedAt: new Date(),
+      },
     ], {});
   },
 

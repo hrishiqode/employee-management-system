@@ -20,7 +20,7 @@ loginRouter.route('/login')
     if (resultedUser === null) { res.render('login-form', { usernameError: 'no such user', passwordError: '' }); } else if (resultedUser.password !== req.body.password) { res.render('login-form', { usernameError: '', passwordError: 'wrong password' }); } else {
       req.session.authenticated = true;
       req.session.user = resultedUser;
-      res.redirect('/employee');
+      if (req.session.user.role.name === 'admin') { res.redirect('/admin'); } else { res.redirect('/employee'); }
       console.log('hello');
     }
   });
