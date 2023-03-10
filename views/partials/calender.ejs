@@ -1,3 +1,4 @@
+
 <table id="calender">
     <thead>
       <tr>
@@ -14,38 +15,38 @@
     </tbody>
   </table>
 
-  <script>
-     let today = new Date();
-    let attArray = [];
-    let daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
-    let firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
-    let calendarBody = document.getElementById("calendar-body");
-    let date = 1;
-    for (let i = 0; i < 6; i++) {
-      let row = document.createElement("tr");
-      for (let j = 0; j < 7; j++) {
-        let cell = document.createElement("td");
-        if (i === 0 && j < firstDay) {
-          cell.textContent = "";
-        } else if (date > daysInMonth) {
-          cell.textContent = "";
-        } else {
-          cell.textContent = date;
-          cell.id = date;
-          if (date === today.getDate() && today.getMonth() === new Date().getMonth()) {
-            cell.classList.add("today");
-          }
-          date++;
-        }
-        row.appendChild(cell);
-      }
-      calendarBody.appendChild(row);
-    }
-    <% dates.forEach((attendance)=>{ %>
-    document.getElementById(<%= attendance %>).style.backgroundColor = 'green';
-    <% }); %>
-
-    var signInButton = document.querySelector(".form-signin .sign-in button");
-    var signOutForm = document.querySelector(".form-signin .sign-out");
-    var signOutButton = document.querySelector(".form-signin .sign-out button");
+<script>
+  let today = new Date();
+  let attArray = [];
+  let daysInMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+  let firstDay = new Date(today.getFullYear(), today.getMonth(), 1).getDay();
+  let calendarBody = document.getElementById("calendar-body");
+  let date = 1;
+  for (let i = 0; i < 6; i++) {
+   let row = document.createElement("tr");
+   for (let j = 0; j < 7; j++) {
+     let cell = document.createElement("td");
+     if (i === 0 && j < firstDay) {
+       cell.textContent = "";
+     } else if (date > daysInMonth) {
+       cell.textContent = "";
+     } else {
+       cell.textContent = date;
+       cell.id = date;
+       if (date === today.getDate() && today.getMonth() === new Date().getMonth()) {
+         cell.classList.add("today");
+       }
+       date++;
+     }
+     row.appendChild(cell);
+   }
+   calendarBody.appendChild(row);
+  }
+  <% dateArray.forEach((attendance)=>{ %>
+  document.getElementById(<%= attendance %>).style.backgroundColor = 'green';
+  <% }); %>
+  
+  var signInButton = document.querySelector(".form-signin .sign-in button");
+  var signOutForm = document.querySelector(".form-signin .sign-out");
+  var signOutButton = document.querySelector(".form-signin .sign-out button");
   </script>
