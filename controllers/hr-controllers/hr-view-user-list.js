@@ -9,12 +9,14 @@ hrViewUserListRouter.route('/users')
       where: {
         userId: req.session.user.id,
       },
-      attributes: ['id', 'firstName', 'lastName'],
+      attributes: ['id', 'firstName', 'lastName', 'email', 'username'],
     });
     res.render('hr-view-users', {
       firstName: req.session.user.firstName,
       lastname: req.session.user.lastName,
+      username: req.session.user.username,
       id: req.session.user.id,
+      email: req.session.user.email,
       userArray: users,
     });
   });
