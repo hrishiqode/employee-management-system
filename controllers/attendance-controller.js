@@ -37,7 +37,7 @@ attendanceRouter.route('/signin')
     });
     const dates = [];
     attendances.forEach((attendance) => {
-      attendance.date.substring(5, 7) == (new Date()).getMonth() + 1 ? dateArray.push(parseInt(attendance.date.slice(-2))) : null;
+      attendance.date.substring(5, 7) == (new Date()).getMonth() + 1 ? dates.push(parseInt(attendance.date.slice(-2))) : null;
     });
     res.render('employee-dashboard', {
       id: req.session.user.id,
@@ -87,7 +87,7 @@ attendanceRouter.route('/signout')
 
     const dates = [];
     attendances.forEach((attendance) => {
-      attendance.date.substring(5, 7) == (new Date()).getMonth() + 1 ? dateArray.push(parseInt(attendance.date.slice(-2))) : null;
+      attendance.date.substring(5, 7) == (new Date()).getMonth() + 1 ? dates.push(parseInt(attendance.date.slice(-2))) : null;
     });
     res.render('employee-dashboard', {
       id: req.session.user.id,
