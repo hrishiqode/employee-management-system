@@ -13,11 +13,10 @@ viewAttendanceRouter.route('/attendance/:page')
     }
   })
   .get(async (req, res, next) => {
-    console.log('yelop');
     if (req.params.page <= 0) {
       req.params.page = 1;
     }
-    const attendancesArray = await db.attendances.findAll(
+    const attendances = await db.attendances.findAll(
       {
         where: {
           userId: req.session.user.id,
@@ -27,9 +26,8 @@ viewAttendanceRouter.route('/attendance/:page')
         offset: (req.params.page - 1) * 5,
       },
     );
-    console.log(req.session.user.firstName);
     res.render('employee-attendance', {
-      attendances: attendancesArray,
+      attendances,
       page: parseInt(req.params.page),
       firstName: req.session.user.firstName,
       lastName: req.session.user.lastName,

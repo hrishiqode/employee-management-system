@@ -2,8 +2,6 @@ import db from '../models/index.cjs';
 
 export default class LoginAuthentication {
   static async employeeCheck(req, res, next) {
-    console.log(req.session.user.role.name);
-    console.log('no');
     if (req.session.user.role.name === 'employee') {
       next();
     } else if (req.session.user.role.name === 'admin') { res.redirect('/admin'); } else res.redirect('/hr');
@@ -16,13 +14,11 @@ export default class LoginAuthentication {
       res.set('Expires', 0);
       next();
     } else {
-      console.log('not logged in');
       res.redirect('/login');
     }
   }
 
   static async hrCheck(req, res, next) {
-    console.log('yup');
     if (req.session.user.role.name === 'hr') {
       next();
     } else if (req.session.user.role.name === 'admin') res.redirect('/admin');
@@ -30,8 +26,6 @@ export default class LoginAuthentication {
   }
 
   static async adminCheck(req, res, next) {
-    console.log(req.session.user.role.name);
-    console.log('no');
     if (req.session.user.role.name === 'admin') {
       next();
     } else {

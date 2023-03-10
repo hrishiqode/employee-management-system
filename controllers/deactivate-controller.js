@@ -7,7 +7,7 @@ const deactivateRouter = Router();
 deactivateRouter.route('/')
   .delete(async (req, res, next) => {
     const deleteUser = await db.users.destroy({ where: { id: req.session.user.id } });
-    console.log('logout');
+    
     req.session.destroy();
     res.end();
   });

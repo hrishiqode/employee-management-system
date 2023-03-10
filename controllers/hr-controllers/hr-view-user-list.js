@@ -17,7 +17,7 @@ hrViewUserListRouter.route('/users')
       username: req.session.user.username,
       id: req.session.user.id,
       email: req.session.user.email,
-      userArray: users,
+      users,
     });
   });
 export default hrViewUserListRouter;

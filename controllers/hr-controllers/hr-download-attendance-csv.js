@@ -6,7 +6,7 @@ const hrDownloadAttendanceCSVRouter = Router();
 
 hrDownloadAttendanceCSVRouter.route('/user/:id')
   .get(async (req, res, next) => {
-    const attendanceArray = await db.attendances.findAll(
+    const attendances = await db.attendances.findAll(
       {
         where: {
           userId: req.params.id,
@@ -14,7 +14,7 @@ hrDownloadAttendanceCSVRouter.route('/user/:id')
       },
     );
     res.set('Content-type', 'text/csv');
-    attendanceArray.forEach((attendance) => {
+    attendances.forEach((attendance) => {
       res.write(`${attendance.date},${attendance.loginTime},${attendance.logoutTime}\n`);
     });
     res.end();
