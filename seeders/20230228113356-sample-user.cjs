@@ -22,7 +22,19 @@ module.exports = {
       email: 'johnda@gmail.com',
       createdAt: new Date(),
       updatedAt: new Date(),
-    }], {});
+    },
+    {
+      firstName: 'Hrishi',
+      lastName: 'Jadhav',
+      dateOfBirth: new Date(),
+      password: '1234',
+      username: 'hrishijadhav',
+      roleId: 3,
+      email: 'hrishijadhav@gmail.com',
+      createdAt: new Date(),
+      updatedAt: new Date(),
+    },
+    ], {});
   },
 
   async down(queryInterface, Sequelize) {
@@ -30,7 +42,8 @@ module.exports = {
      * Add commands to revert seed here.
      *
      * Example:
-     * await queryInterface.bulkDelete('People', null, {});
+     * await queryInterface.bul
+kDelete('People', null, {});
      */
   },
 };

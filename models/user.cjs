@@ -17,6 +17,8 @@ module.exports = (sequelize, DataTypes) => {
       models.ratings.belongsTo(User);
       models.roles.hasMany(User);
       User.belongsTo(models.roles);
+      User.hasMany(User);
+      User.belongsTo(User);
     }
   }
   User.init({
@@ -54,6 +56,9 @@ module.exports = (sequelize, DataTypes) => {
     roleId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+    },
+    userId: {
+      type: DataTypes.INTEGER,
     },
   }, {
     sequelize,
