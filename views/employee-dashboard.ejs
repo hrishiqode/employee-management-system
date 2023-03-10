@@ -88,14 +88,13 @@
         </div>
         <div class="flexing">
 
-          <div class="form-signin"> Mark Your attendance:
-            <form class="sign-in" action="/employee/signin">
-              <button type="submit" style="display: <%= signIn == 'not signed in'?'block':'none' %>;">sign-in :<%= signIn%></button>
-            </form>
-            <br>
-            <form class="sign-out" action="/employee/signout" style="display:<%= signOut == 'not signed out'?'block':'block' %>;">
-              <button type="submit">sign-out :<%= signOut%></button>
-            </form>
+          <div class="form-signin">
+            <form class="sign-in" action="/employee/signin" style="display:<%= (signIn === 'not signed in' && signOut === 'not signed out') ? 'block' : 'none' %>;">
+              <button type="submit">sign-in</button>
+            </form> 
+            <form class="sign-out" action="/employee/signout" style="display:<%= (signIn !== 'not signed in' && signOut === 'not signed out') ? 'block' : 'none' %>;">
+              <button type="submit">sign-out</button>
+            </form>            
           </div>
           <table id="calender">
             <thead>
