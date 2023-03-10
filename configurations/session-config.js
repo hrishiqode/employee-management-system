@@ -1,10 +1,10 @@
 import session from 'express-session';
-import connectPgSimple from 'connect-pg-simple';
 import pg from 'pg';
 import expressPgSession from 'express-pg-session';
+import dotenv from 'dotenv';
+import process from 'process';
 
-const process = require('process');
-require('dotenv').config();
+dotenv.config();
 
 export default class SessionConfig {
   static memoryStore = new session.MemoryStore();
