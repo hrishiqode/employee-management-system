@@ -10,6 +10,58 @@
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
  */
+
+thead th {
+  border: 1px solid black;
+}
+td{
+  border: 1px solid black;
+
+}
+
+th{
+  border: 1px solid black;
+}
+
+.info-table {
+  margin-left: 30px ;
+}
+
+ .flexing{
+  display: flex;
+  margin :10px;
+  padding: 10px;
+ }
+
+
+.form-signin{
+  background-color: adb5bd;
+ border-style: solid;
+ width: 200px;
+ border-radius: 5px;
+ padding: 5px;
+ margin: 10px;
+ 
+}
+
+#calender{
+  border: 1px solid black;
+
+  border-style: solid;
+  width: 450px;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 10px;
+  text-align: center;
+}
+ footer {
+  position: absolute;
+  bottom: 0;
+  width: 74%;
+  height: 60px;
+}
+
+
 :root {
   --bs-blue: #0d6efd;
   --bs-indigo: #6610f2;
@@ -68,6 +120,7 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  border-color: #04414d;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -11699,3 +11752,5 @@ body {
   font-size: 0.75rem;
   border-radius: 0.25rem !important;
 }
+
+
